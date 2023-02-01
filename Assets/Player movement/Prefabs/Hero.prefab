@@ -150,6 +150,7 @@ MonoBehaviour:
   <RotationDamping>k__BackingField: 10
   <JumpForce>k__BackingField: 5
   <AerialMovementSpeed>k__BackingField: 2.5
+  <MaxAirJumps>k__BackingField: 1
   <InputReader>k__BackingField: {fileID: 3688722803409119753}
   <Controller>k__BackingField: {fileID: 3688722803409119752}
   <Animator>k__BackingField: {fileID: 3688722803409119862}

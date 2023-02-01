@@ -8,12 +8,20 @@ public class HeroJumpingState : HeroBaseState
     private const float CrossFadeDuration = 0.1f;
 
     private Vector3 momentum;
+    private int airJumpsUsed;
 
 
-    public HeroJumpingState(HeroStateMachine stateMachine) : base(stateMachine) {}
+    public HeroJumpingState(HeroStateMachine stateMachine, int airJumpsUsed = 0) : base(stateMachine) 
+    {
+        this.airJumpsUsed = airJumpsUsed;
+    }
 
     public override void Enter()
     {
+        if (airJumpsUsed < stateMachine.MaxAirJumps) {
+            stateMachine.InputReader.JumpEvent += OnJump;
+        }
+
         stateMachine.ForceReceiver.Jump(stateMachine.JumpForce);
 
         momentum = stateMachine.Controller.velocity;
@@ -36,5 +44,15 @@ public class HeroJumpingState : HeroBaseState
         }
     }
 
-    public override void Exit() {}
+    public override void Exit() 
+    {
+        if (airJumpsUsed < stateMachine.MaxAirJumps) {
+            stateMachine.InputReader.JumpEvent -= OnJump;
+        }
+    }
+
+    private void OnJump()
+    {
+        stateMachine.SwitchState(new HeroJumpingState(stateMachine, airJumpsUsed + 1));
+    }
 }
