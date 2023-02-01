@@ -15,6 +15,7 @@ public class HeroStateMachine : StateMachine
     [field: SerializeField] public CharacterController Controller { get; private set; }
     [field: SerializeField] public Animator Animator { get; private set; }
     [field: SerializeField] public ForceReceiver ForceReceiver { get; private set; }
+    [field: SerializeField] public AbilityTracker AbilityTracker { get; private set; }
 
     public Transform mainCameraTransform { get; private set; }
 
