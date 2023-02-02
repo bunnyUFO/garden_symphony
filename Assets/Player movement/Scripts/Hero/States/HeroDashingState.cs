@@ -18,6 +18,9 @@ public class HeroDashingState : HeroBaseState
 
     public override void Enter() 
     {
+        stateMachine.InputReader.JumpEvent += OnJump;
+        stateMachine.InputReader.HoverEvent += OnHover;
+
         remainingDashTime = stateMachine.DashDuration;
 
         stateMachine.Animator.CrossFadeInFixedTime(DashingHash, CrossFadeDuration);
@@ -41,5 +44,23 @@ public class HeroDashingState : HeroBaseState
         }
     }
 
-    public override void Exit() {}
+    public override void Exit() 
+    {
+        stateMachine.InputReader.JumpEvent -= OnJump;
+        stateMachine.InputReader.HoverEvent -= OnHover;
+    }
+
+    private void OnJump()
+    {
+        if (stateMachine.AbilityTracker.TryAddAbility("Jump")) {
+            stateMachine.SwitchState(new HeroJumpingState(stateMachine));
+        }
+    }
+
+    private void OnHover()
+    {
+        if (stateMachine.AbilityTracker.TryAddAbility("Hover")) {
+            stateMachine.SwitchState(new HeroHoveringState(stateMachine));
+        }
+    }
 }

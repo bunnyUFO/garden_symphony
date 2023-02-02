@@ -8,7 +8,6 @@ public class HeroStateMachine : StateMachine
     [field: SerializeField] public float RotationDamping { get; private set; }
     [field: SerializeField] public float JumpForce { get; private set; }
     [field: SerializeField] public float AerialMovementSpeed { get; private set; }
-    [field: SerializeField] public int MaxAirJumps { get; private set; }
     [field: SerializeField] public float DashDuration { get; private set; }
     [field: SerializeField] public float DashDistance { get; private set; }
     [field: SerializeField] public float HoverDuration { get; private set; }

@@ -148,6 +148,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <MaxUses>k__BackingField: 2
+  abilityTrackerPanel: {fileID: 0}
+  abilityChargeIconPrefab: {fileID: 5000435255589404819, guid: fb4ae054ddc01eb4eb6211cdfb75e3fd, type: 3}
 --- !u!114 &3688722803409119757
 MonoBehaviour:
   m_ObjectHideFlags: 0

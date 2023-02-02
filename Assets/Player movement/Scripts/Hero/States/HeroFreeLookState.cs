@@ -15,6 +15,8 @@ public class HeroFreeLookState : HeroBaseState
         stateMachine.InputReader.JumpEvent += OnJump;
         stateMachine.InputReader.DashEvent += OnDash;
 
+        stateMachine.AbilityTracker.Reset();
+
         stateMachine.Animator.SetFloat(FreeLookSpeedHash, 0f);
         stateMachine.Animator.CrossFadeInFixedTime(FreeLookBlendTreeHash, CrossFadeDuration);
     }
@@ -56,6 +58,8 @@ public class HeroFreeLookState : HeroBaseState
 
     private void OnDash()
     {
-        stateMachine.SwitchState(new HeroDashingState(stateMachine, Vector2.up));
+        if (stateMachine.AbilityTracker.TryAddAbility("Dash")) {
+            stateMachine.SwitchState(new HeroDashingState(stateMachine, Vector2.up));
+        }
     }
 }

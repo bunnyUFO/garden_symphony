@@ -8,19 +8,13 @@ public class HeroFallingState : HeroBaseState
     private const float CrossFadeDuration = 0.1f;
 
     private Vector3 momentum;
-    private int airJumpsUsed;
 
 
-    public HeroFallingState(HeroStateMachine stateMachine, int airJumpsUsed = 0) : base(stateMachine) 
-    {
-        this.airJumpsUsed = airJumpsUsed;
-    }
+    public HeroFallingState(HeroStateMachine stateMachine) : base(stateMachine) {}
 
     public override void Enter() 
     {
-        if (airJumpsUsed < stateMachine.MaxAirJumps) {
-            stateMachine.InputReader.JumpEvent += OnJump;
-        }
+        stateMachine.InputReader.JumpEvent += OnJump;
         stateMachine.InputReader.DashEvent += OnDash;
         stateMachine.InputReader.HoverEvent += OnHover;
 
@@ -45,25 +39,29 @@ public class HeroFallingState : HeroBaseState
 
     public override void Exit() 
     {
-        if (airJumpsUsed < stateMachine.MaxAirJumps) {
-            stateMachine.InputReader.JumpEvent -= OnJump;
-        }
+        stateMachine.InputReader.JumpEvent -= OnJump;
         stateMachine.InputReader.DashEvent -= OnDash;
         stateMachine.InputReader.HoverEvent -= OnHover;
     }
 
     private void OnJump()
     {
-        stateMachine.SwitchState(new HeroJumpingState(stateMachine, airJumpsUsed + 1));
+        if (stateMachine.AbilityTracker.TryAddAbility("Jump")) {
+            stateMachine.SwitchState(new HeroJumpingState(stateMachine));
+        }
     }
 
     private void OnDash()
     {
-        stateMachine.SwitchState(new HeroDashingState(stateMachine, Vector2.up));
+        if (stateMachine.AbilityTracker.TryAddAbility("Dash")) {
+            stateMachine.SwitchState(new HeroDashingState(stateMachine, Vector2.up));
+        }
     }
 
     private void OnHover()
     {
-        stateMachine.SwitchState(new HeroHoveringState(stateMachine));
+        if (stateMachine.AbilityTracker.TryAddAbility("Hover")) {
+            stateMachine.SwitchState(new HeroHoveringState(stateMachine));
+        }
     }
 }
