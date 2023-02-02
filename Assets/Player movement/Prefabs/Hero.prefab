@@ -166,10 +166,10 @@ MonoBehaviour:
   <RotationDamping>k__BackingField: 10
   <JumpForce>k__BackingField: 5
   <AerialMovementSpeed>k__BackingField: 2.5
-  <MaxAirJumps>k__BackingField: 1
   <DashDuration>k__BackingField: 0.25
   <DashDistance>k__BackingField: 5
-  <HoverDuration>k__BackingField: 10
+  <HoverMovementSpeed>k__BackingField: 1.5
+  <HoverDuration>k__BackingField: 3
   <InputReader>k__BackingField: {fileID: 3688722803409119753}
   <Controller>k__BackingField: {fileID: 3688722803409119752}
   <Animator>k__BackingField: {fileID: 3688722803409119862}

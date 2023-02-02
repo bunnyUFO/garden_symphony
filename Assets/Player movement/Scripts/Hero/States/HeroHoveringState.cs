@@ -23,6 +23,12 @@ public class HeroHoveringState : HeroBaseState
 
     public override void Tick(float deltaTime) 
     {
+        Vector3 movement = CalculateMovement();
+
+        Move(movement * stateMachine.HoverMovementSpeed, deltaTime);
+
+        FaceMovementDirection(movement, deltaTime);
+
         remainingHoverTime -= deltaTime;
 
         if (remainingHoverTime <= 0f || !stateMachine.InputReader.HoverButtonDown) {
