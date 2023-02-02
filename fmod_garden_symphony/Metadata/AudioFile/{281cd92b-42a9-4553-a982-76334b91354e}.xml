@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{281cd92b-42a9-4553-a982-76334b91354e}">
+		<property name="assetPath">
+			<value>TestAssets/Kit5_Bass_Wet_No_SC_100_Gmin.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>88.799999999999997</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{dd67bc0a-0bd9-4dae-adce-b58120704427}</destination>
+		</relationship>
+	</object>
+</objects>
