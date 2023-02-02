@@ -2,18 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HeroDashState : HeroBaseState
+public class HeroDashingState : HeroBaseState
 {
-    private readonly int DashBlendTreeHash = Animator.StringToHash("DashBlendTree");
-    private readonly int DashForwardHash = Animator.StringToHash("DashForward");
-    private readonly int DashRightHash = Animator.StringToHash("DashRight");
+    private readonly int DashingHash = Animator.StringToHash("Dashing");
     private const float CrossFadeDuration = 0.1f;
 
     private Vector3 dashDirectionInput;
     private float remainingDashTime;
 
 
-    public HeroDashState(HeroStateMachine stateMachine, Vector3 dodgingDirectionInput) : base(stateMachine) 
+    public HeroDashingState(HeroStateMachine stateMachine, Vector3 dodgingDirectionInput) : base(stateMachine) 
     {
         this.dashDirectionInput = dodgingDirectionInput;
     }
@@ -22,9 +20,7 @@ public class HeroDashState : HeroBaseState
     {
         remainingDashTime = stateMachine.DashDuration;
 
-        stateMachine.Animator.SetFloat(DashForwardHash, dashDirectionInput.y);
-        stateMachine.Animator.SetFloat(DashRightHash, dashDirectionInput.x);
-        stateMachine.Animator.CrossFadeInFixedTime(DashBlendTreeHash, CrossFadeDuration);
+        stateMachine.Animator.CrossFadeInFixedTime(DashingHash, CrossFadeDuration);
     }
 
     public override void Tick(float deltaTime) 

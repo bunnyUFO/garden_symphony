@@ -60,6 +60,6 @@ public class HeroJumpingState : HeroBaseState
 
     private void OnDash()
     {
-        stateMachine.SwitchState(new HeroDashState(stateMachine, Vector2.up));
+        stateMachine.SwitchState(new HeroDashingState(stateMachine, Vector2.up));
     }
 }
