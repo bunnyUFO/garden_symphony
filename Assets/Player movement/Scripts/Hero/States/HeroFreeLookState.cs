@@ -13,7 +13,7 @@ public class HeroFreeLookState : HeroBaseState
     public override void Enter() 
     {
         stateMachine.InputReader.JumpEvent += OnJump;
-        stateMachine.InputReader.DashEvent += OnDodge;
+        stateMachine.InputReader.DashEvent += OnDash;
 
         stateMachine.Animator.SetFloat(FreeLookSpeedHash, 0f);
         stateMachine.Animator.CrossFadeInFixedTime(FreeLookBlendTreeHash, CrossFadeDuration);
@@ -37,7 +37,7 @@ public class HeroFreeLookState : HeroBaseState
     public override void Exit() 
     {
         stateMachine.InputReader.JumpEvent -= OnJump;
-        stateMachine.InputReader.DashEvent += OnDodge;
+        stateMachine.InputReader.DashEvent -= OnDash;
     }
 
     private void FaceMovementDirection(Vector3 movement, float deltaTime)
@@ -54,8 +54,8 @@ public class HeroFreeLookState : HeroBaseState
         stateMachine.SwitchState(new HeroJumpingState(stateMachine));
     }
 
-    private void OnDodge()
+    private void OnDash()
     {
-        stateMachine.SwitchState(new HeroDashState(stateMachine));
+        stateMachine.SwitchState(new HeroDashState(stateMachine, Vector2.up));
     }
 }

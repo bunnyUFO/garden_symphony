@@ -165,6 +165,8 @@ MonoBehaviour:
   <JumpForce>k__BackingField: 5
   <AerialMovementSpeed>k__BackingField: 2.5
   <MaxAirJumps>k__BackingField: 1
+  <DashDuration>k__BackingField: 0.25
+  <DashDistance>k__BackingField: 5
   <InputReader>k__BackingField: {fileID: 3688722803409119753}
   <Controller>k__BackingField: {fileID: 3688722803409119752}
   <Animator>k__BackingField: {fileID: 3688722803409119862}
