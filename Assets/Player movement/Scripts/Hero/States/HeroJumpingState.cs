@@ -8,9 +8,13 @@ public class HeroJumpingState : HeroBaseState
     private const float CrossFadeDuration = 0.1f;
 
     private Vector3 momentum;
+    private bool transferMomentum;
 
 
-    public HeroJumpingState(HeroStateMachine stateMachine) : base(stateMachine) {}
+    public HeroJumpingState(HeroStateMachine stateMachine, bool transferMomentum = true) : base(stateMachine) 
+    {
+        this.transferMomentum = transferMomentum;
+    }
 
     public override void Enter()
     {
@@ -20,8 +24,12 @@ public class HeroJumpingState : HeroBaseState
 
         stateMachine.ForceReceiver.Jump(stateMachine.JumpForce);
 
-        momentum = stateMachine.Controller.velocity;
-        momentum.y = 0f;
+        if (transferMomentum) {
+            momentum = stateMachine.Controller.velocity;
+            momentum.y = 0f;
+        } else {
+            momentum = Vector3.zero;
+        }
 
         stateMachine.Animator.CrossFadeInFixedTime(JumpingHash, CrossFadeDuration);
     }

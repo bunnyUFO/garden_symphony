@@ -32,7 +32,7 @@ public class HeroHoveringState : HeroBaseState
         remainingHoverTime -= deltaTime;
 
         if (remainingHoverTime <= 0f || !stateMachine.InputReader.HoverButtonDown) {
-            ReturnToLocomotion();
+            ReturnToLocomotion(false);
         }
     }
 
@@ -45,7 +45,7 @@ public class HeroHoveringState : HeroBaseState
     private void OnJump()
     {
         if (stateMachine.AbilityTracker.TryAddAbility("Jump")) {
-            stateMachine.SwitchState(new HeroJumpingState(stateMachine));
+            stateMachine.SwitchState(new HeroJumpingState(stateMachine, false));
         }
     }
 

@@ -8,9 +8,13 @@ public class HeroFallingState : HeroBaseState
     private const float CrossFadeDuration = 0.1f;
 
     private Vector3 momentum;
+    private bool transferMomentum;
 
 
-    public HeroFallingState(HeroStateMachine stateMachine) : base(stateMachine) {}
+    public HeroFallingState(HeroStateMachine stateMachine, bool transferMomentum = true) : base(stateMachine) 
+    {
+        this.transferMomentum = transferMomentum;
+    }
 
     public override void Enter() 
     {
@@ -18,16 +22,18 @@ public class HeroFallingState : HeroBaseState
         stateMachine.InputReader.DashEvent += OnDash;
         stateMachine.InputReader.HoverEvent += OnHover;
 
-        momentum = stateMachine.Controller.velocity;
-        momentum.y = 0f;
+        if (transferMomentum) {
+            momentum = stateMachine.Controller.velocity;
+            momentum.y = 0f;
+        } else {
+            momentum = Vector3.zero;
+        }
 
         stateMachine.Animator.CrossFadeInFixedTime(FallingHash, CrossFadeDuration);
     }
 
     public override void Tick(float deltaTime) 
     {
-        //Move(momentum, deltaTime);
-
         Vector3 movement = CalculateMovement();
 
         Move(movement * stateMachine.AerialMovementSpeed + momentum, deltaTime);

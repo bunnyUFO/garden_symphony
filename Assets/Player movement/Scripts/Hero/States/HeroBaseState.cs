@@ -37,6 +37,8 @@ public abstract class HeroBaseState : State
 
     protected void FaceMovementDirection(Vector3 movement, float deltaTime)
     {
+        if (movement == Vector3.zero) return;
+        
         stateMachine.transform.rotation = Quaternion.Lerp(
             stateMachine.transform.rotation,
             Quaternion.LookRotation(movement),
@@ -44,10 +46,10 @@ public abstract class HeroBaseState : State
         );
     }
 
-    protected void ReturnToLocomotion()
+    protected void ReturnToLocomotion(bool transferMomentum = true)
     {
         if (!stateMachine.Controller.isGrounded) {
-            stateMachine.SwitchState(new HeroFallingState(stateMachine));
+            stateMachine.SwitchState(new HeroFallingState(stateMachine, transferMomentum));
         } else {
             stateMachine.SwitchState(new HeroFreeLookState(stateMachine));
         }

@@ -35,12 +35,10 @@ public class HeroDashingState : HeroBaseState
 
         Move(movement, deltaTime);
 
-        //FaceMovementDirection();
-
         remainingDashTime -= deltaTime;
 
         if (remainingDashTime <= 0f) {
-            ReturnToLocomotion();
+            ReturnToLocomotion(false);
         }
     }
 
@@ -53,7 +51,7 @@ public class HeroDashingState : HeroBaseState
     private void OnJump()
     {
         if (stateMachine.AbilityTracker.TryAddAbility("Jump")) {
-            stateMachine.SwitchState(new HeroJumpingState(stateMachine));
+            stateMachine.SwitchState(new HeroJumpingState(stateMachine, false));
         }
     }
 
