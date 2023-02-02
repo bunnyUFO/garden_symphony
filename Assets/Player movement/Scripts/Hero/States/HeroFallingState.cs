@@ -21,6 +21,7 @@ public class HeroFallingState : HeroBaseState
         if (airJumpsUsed < stateMachine.MaxAirJumps) {
             stateMachine.InputReader.JumpEvent += OnJump;
         }
+        stateMachine.InputReader.DashEvent += OnDash;
 
         momentum = stateMachine.Controller.velocity;
         momentum.y = 0f;
@@ -46,10 +47,16 @@ public class HeroFallingState : HeroBaseState
         if (airJumpsUsed < stateMachine.MaxAirJumps) {
             stateMachine.InputReader.JumpEvent -= OnJump;
         }
+        stateMachine.InputReader.DashEvent += OnDash;
     }
 
     private void OnJump()
     {
         stateMachine.SwitchState(new HeroJumpingState(stateMachine, airJumpsUsed + 1));
+    }
+
+    private void OnDash()
+    {
+        stateMachine.SwitchState(new HeroDashState(stateMachine, Vector2.up));
     }
 }
