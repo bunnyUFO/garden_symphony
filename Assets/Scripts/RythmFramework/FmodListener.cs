@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace RythmFramework
 {
-    public class BeatListener : MonoBehaviour 
+    public class FmodListener : MonoBehaviour 
     {
         [SerializeField]
         private FMODUnity.EventReference eventReference;
@@ -31,15 +31,12 @@ namespace RythmFramework
             {
                 TIMELINE_MARKER_PROPERTIES marker = (TIMELINE_MARKER_PROPERTIES)Marshal.PtrToStructure(parameters, typeof(TIMELINE_MARKER_PROPERTIES));
                 string markerName = (string)marker.name;
-                if (markerName == "test")
-                {
-                    Debug.Log("test");
-                }
+                Events.current.BeatMarker(markerName);
             }
             if (type == EVENT_CALLBACK_TYPE.TIMELINE_BEAT)
             {
-                TIMELINE_BEAT_PROPERTIES beat = (TIMELINE_BEAT_PROPERTIES)Marshal.PtrToStructure(parameters, typeof(TIMELINE_BEAT_PROPERTIES));
-                Debug.Log("beat");
+                // TIMELINE_BEAT_PROPERTIES beat = (TIMELINE_BEAT_PROPERTIES)Marshal.PtrToStructure(parameters, typeof(TIMELINE_BEAT_PROPERTIES));
+                Events.current.Beat();
             }
             return FMOD.RESULT.OK;
         }
