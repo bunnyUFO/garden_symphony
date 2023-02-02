@@ -7,9 +7,11 @@ using UnityEngine.InputSystem;
 public class InputReader : MonoBehaviour, Controls.IHeroActions
 {
     public Vector2 MovementValue { get; private set; }
+    public bool HoverButtonDown { get; private set; }
 
     public event Action JumpEvent;
     public event Action DashEvent;
+    public event Action HoverEvent;
 
     private Controls controls;
 
@@ -20,6 +22,8 @@ public class InputReader : MonoBehaviour, Controls.IHeroActions
         controls.Hero.SetCallbacks(this);
 
         controls.Hero.Enable();
+
+        HoverButtonDown = false;
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -46,5 +50,14 @@ public class InputReader : MonoBehaviour, Controls.IHeroActions
         if (!context.performed) return;
 
         DashEvent?.Invoke();
+    }
+
+    public void OnHover(InputAction.CallbackContext context)
+    {
+        HoverButtonDown = context.performed;
+        
+        if (!context.performed)  return;
+        
+        HoverEvent?.Invoke();
     }
 }

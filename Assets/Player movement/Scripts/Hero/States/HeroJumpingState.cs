@@ -22,6 +22,7 @@ public class HeroJumpingState : HeroBaseState
             stateMachine.InputReader.JumpEvent += OnJump;
         }
         stateMachine.InputReader.DashEvent += OnDash;
+        stateMachine.InputReader.HoverEvent += OnHover;
 
         stateMachine.ForceReceiver.Jump(stateMachine.JumpForce);
 
@@ -50,7 +51,8 @@ public class HeroJumpingState : HeroBaseState
         if (airJumpsUsed < stateMachine.MaxAirJumps) {
             stateMachine.InputReader.JumpEvent -= OnJump;
         }
-        stateMachine.InputReader.DashEvent += OnDash;
+        stateMachine.InputReader.DashEvent -= OnDash;
+        stateMachine.InputReader.HoverEvent -= OnHover;
     }
 
     private void OnJump()
@@ -61,5 +63,10 @@ public class HeroJumpingState : HeroBaseState
     private void OnDash()
     {
         stateMachine.SwitchState(new HeroDashingState(stateMachine, Vector2.up));
+    }
+
+    private void OnHover()
+    {
+        stateMachine.SwitchState(new HeroHoveringState(stateMachine));
     }
 }

@@ -11,6 +11,7 @@ public class HeroStateMachine : StateMachine
     [field: SerializeField] public int MaxAirJumps { get; private set; }
     [field: SerializeField] public float DashDuration { get; private set; }
     [field: SerializeField] public float DashDistance { get; private set; }
+    [field: SerializeField] public float HoverDuration { get; private set; }
 
     [field: Header("Components")]
     [field: SerializeField] public InputReader InputReader { get; private set; }
