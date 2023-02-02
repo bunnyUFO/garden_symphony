@@ -34,6 +34,8 @@ public class HeroJumpingState : HeroBaseState
 
         Move(movement * stateMachine.AerialMovementSpeed + momentum, deltaTime);
 
+        FaceMovementDirection(movement, deltaTime);
+
         if (stateMachine.Controller.velocity.y <= 0f) {
             stateMachine.SwitchState(new HeroFallingState(stateMachine));
             return;

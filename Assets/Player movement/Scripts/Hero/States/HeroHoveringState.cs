@@ -26,11 +26,7 @@ public class HeroHoveringState : HeroBaseState
         remainingHoverTime -= deltaTime;
 
         if (remainingHoverTime <= 0f || !stateMachine.InputReader.HoverButtonDown) {
-            if (stateMachine.Controller.isGrounded) {
-                stateMachine.SwitchState(new HeroFreeLookState(stateMachine));
-            } else {
-                stateMachine.SwitchState(new HeroFallingState(stateMachine));
-            }
+            ReturnToLocomotion();
         }
     }
 

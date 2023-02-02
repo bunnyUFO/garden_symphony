@@ -23,6 +23,11 @@ public class HeroFreeLookState : HeroBaseState
 
     public override void Tick(float deltaTime) 
     {
+        if (!stateMachine.Controller.isGrounded) {
+            stateMachine.SwitchState(new HeroFallingState(stateMachine));
+            return;
+        }
+
         Vector3 movement = CalculateMovement();
 
         Move(movement * stateMachine.FreeLookMovementSpeed, deltaTime);
@@ -40,15 +45,6 @@ public class HeroFreeLookState : HeroBaseState
     {
         stateMachine.InputReader.JumpEvent -= OnJump;
         stateMachine.InputReader.DashEvent -= OnDash;
-    }
-
-    private void FaceMovementDirection(Vector3 movement, float deltaTime)
-    {
-        stateMachine.transform.rotation = Quaternion.Lerp(
-            stateMachine.transform.rotation,
-            Quaternion.LookRotation(movement),
-            deltaTime * stateMachine.RotationDamping
-        );
     }
 
     private void OnJump()

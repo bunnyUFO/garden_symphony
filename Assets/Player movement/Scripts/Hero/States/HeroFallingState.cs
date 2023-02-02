@@ -32,8 +32,11 @@ public class HeroFallingState : HeroBaseState
 
         Move(movement * stateMachine.AerialMovementSpeed + momentum, deltaTime);
 
+        FaceMovementDirection(movement, deltaTime);
+
         if (stateMachine.Controller.isGrounded) {
             stateMachine.SwitchState(new HeroLandingState(stateMachine));
+            return;
         }
     }
 

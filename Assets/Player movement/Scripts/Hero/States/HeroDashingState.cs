@@ -40,7 +40,7 @@ public class HeroDashingState : HeroBaseState
         remainingDashTime -= deltaTime;
 
         if (remainingDashTime <= 0f) {
-            stateMachine.SwitchState(new HeroFreeLookState(stateMachine));
+            ReturnToLocomotion();
         }
     }
 
