@@ -5,9 +5,9 @@ using UnityEngine;
 
 namespace RythmFramework
 {
-    public class Events : MonoBehaviour
+    public class BeatEvents : MonoBehaviour
     {
-        public static Events current;
+        public static BeatEvents current;
 
         private void Awake()
         {
