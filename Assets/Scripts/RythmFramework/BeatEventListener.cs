@@ -6,15 +6,15 @@ using UnityEngine;
 
 namespace RythmFramework
 {
-    public class EventlListener : MonoBehaviour
+    public class BeatEventListener : MonoBehaviour
     {
         public bool beat;
         public List<string> markers = new List<string>();
 
         private void Start()
         {
-            if(beat) Events.current.OnBeat += OnBeat;
-            if(markers.Count > 0) Events.current.OnBeatMarker += OnMarker;
+            if(beat) BeatEvents.current.OnBeat += OnBeat;
+            if(markers.Count > 0) BeatEvents.current.OnBeatMarker += OnMarker;
         }
 
         public void OnBeat()

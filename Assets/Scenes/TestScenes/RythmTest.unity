@@ -449,10 +449,9 @@ GameObject:
   m_Component:
   - component: {fileID: 407056621}
   - component: {fileID: 407056623}
-  - component: {fileID: 407056622}
-  - component: {fileID: 407056626}
   - component: {fileID: 407056625}
-  - component: {fileID: 407056624}
+  - component: {fileID: 407056627}
+  - component: {fileID: 407056626}
   m_Layer: 0
   m_Name: main
   m_TagString: Untagged
@@ -475,36 +474,6 @@ Transform:
   m_Father: {fileID: 1959271855}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &407056622
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 407056620}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  EventReference:
-    Guid:
-      Data1: -1488063241
-      Data2: 1143819653
-      Data3: 1124992929
-      Data4: -1358684417
-    Path: event:/beat test
-  Event: 
-  PlayEvent: 1
-  StopEvent: 2
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
 --- !u!114 &407056623
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -523,34 +492,7 @@ MonoBehaviour:
   - Master
   CollisionTag: 
   PreloadSamples: 0
---- !u!114 &407056624
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 407056620}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67e33809a2ca4baba0dbaed873f7d160, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  beat: 1
-  markers:
-  - test
 --- !u!114 &407056625
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 407056620}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9252a246c426426a85debf5638a20eb4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &407056626
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -569,6 +511,33 @@ MonoBehaviour:
       Data3: 1124992929
       Data4: -1358684417
     Path: event:/beat test
+--- !u!114 &407056626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 407056620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67e33809a2ca4baba0dbaed873f7d160, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  beat: 1
+  markers:
+  - test
+--- !u!114 &407056627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 407056620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9252a246c426426a85debf5638a20eb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &520333301
 GameObject:
   m_ObjectHideFlags: 0
@@ -1571,11 +1540,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 211664956825602880, guid: aa7a28d41a8c8ec45b5550b93c7ca699, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.00012763587
+      value: -0.00012767053
       objectReference: {fileID: 0}
     - target: {fileID: 211664956825602880, guid: aa7a28d41a8c8ec45b5550b93c7ca699, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.000004501401
+      value: 0.0000045026227
       objectReference: {fileID: 0}
     - target: {fileID: 211664956866095944, guid: aa7a28d41a8c8ec45b5550b93c7ca699, type: 3}
       propertyPath: m_FollowOffset.y
@@ -3384,7 +3353,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-10756
+  m_Name: pb_Mesh25458
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -3930,8 +3899,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1809034277}
   - component: {fileID: 1809034276}
-  - component: {fileID: 1809034275}
   - component: {fileID: 1809034278}
+  - component: {fileID: 1809034279}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -3939,14 +3908,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &1809034275
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1809034274}
-  m_Enabled: 1
 --- !u!20 &1809034276
 Camera:
   m_ObjectHideFlags: 0
@@ -4039,6 +4000,19 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1809034279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1809034274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attenuationObject: {fileID: 1809034274}
 --- !u!1 &1904619497
 GameObject:
   m_ObjectHideFlags: 0
