@@ -5,10 +5,13 @@ using UnityEngine;
 public class HeroJumpingState : HeroBaseState
 {
     private readonly int JumpingHash = Animator.StringToHash("Jumping");
+    private readonly int RunningJumpHash = Animator.StringToHash("RunningJump");
+    private readonly int DoubleJumpHash = Animator.StringToHash("DoubleJump");
     private const float CrossFadeDuration = 0.1f;
 
     private Vector3 momentum;
     private bool transferMomentum;
+    private float runningJumpSpeed = 0.2f;
 
 
     public HeroJumpingState(HeroStateMachine stateMachine, bool transferMomentum = true) : base(stateMachine) 
@@ -31,7 +34,13 @@ public class HeroJumpingState : HeroBaseState
             momentum = Vector3.zero;
         }
 
-        stateMachine.Animator.CrossFadeInFixedTime(JumpingHash, CrossFadeDuration);
+        if (!stateMachine.Controller.isGrounded) {
+            stateMachine.Animator.CrossFadeInFixedTime(DoubleJumpHash, CrossFadeDuration);    
+        } else if (stateMachine.Controller.velocity.magnitude >= runningJumpSpeed) {
+            stateMachine.Animator.CrossFadeInFixedTime(RunningJumpHash, CrossFadeDuration);    
+        } else {
+            stateMachine.Animator.CrossFadeInFixedTime(JumpingHash, CrossFadeDuration);
+        }
     }
 
     public override void Tick(float deltaTime) 
