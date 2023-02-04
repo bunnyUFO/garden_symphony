@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - RaycastDown
+  - Platform
   layers:
   - Default
   - TransparentFX

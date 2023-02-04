@@ -34,7 +34,7 @@ public class HeroJumpingState : HeroBaseState
             momentum = Vector3.zero;
         }
 
-        if (!stateMachine.Controller.isGrounded) {
+        if (!stateMachine.Grounded) {
             stateMachine.Animator.CrossFadeInFixedTime(DoubleJumpHash, CrossFadeDuration);    
         } else if (stateMachine.Controller.velocity.magnitude >= runningJumpSpeed) {
             stateMachine.Animator.CrossFadeInFixedTime(RunningJumpHash, CrossFadeDuration);    

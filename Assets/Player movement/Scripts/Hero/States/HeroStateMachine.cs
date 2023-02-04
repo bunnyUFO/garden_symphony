@@ -1,5 +1,6 @@
 using UnityEngine;
 using GGJ.StateMachine;
+using RythmFramework;
 
 public class HeroStateMachine : StateMachine
 {
@@ -22,6 +23,7 @@ public class HeroStateMachine : StateMachine
     [field: SerializeField] public Animator Animator { get; private set; }
     [field: SerializeField] public ForceReceiver ForceReceiver { get; private set; }
     [field: SerializeField] public AbilityTracker AbilityTracker { get; private set; }
+    [field: SerializeField] public bool Grounded { get; private set; }
 
     public Transform mainCameraTransform { get; private set; }
 
@@ -37,5 +39,11 @@ public class HeroStateMachine : StateMachine
     private void Start()
     {
         SwitchState(new HeroFreeLookState(this));
+        GroundedEvents.current.OnGrounded += OnGrounded;
+    }
+
+    private void OnGrounded(bool isGrounded)
+    {
+        Grounded = isGrounded;
     }
 }

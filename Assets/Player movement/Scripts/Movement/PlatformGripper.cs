@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using GGJ.Platform;
+using RythmFramework;
 using UnityEngine;
 
 public class PlatformGripper : MonoBehaviour
@@ -9,18 +10,27 @@ public class PlatformGripper : MonoBehaviour
     public Vector3 raycastPosition;
     public float rayCastDistance;
     public LayerMask layerMask;
+    public string platformTag;
+    public float ungripDeltaThreshold;
+
+    private float ungroundedDeltaTime = 0;
 
     private void LateUpdate()
     {
-        RaycastHit hit;
         // Does the ray intersect any objects excluding the player layer
-        if (Physics.Raycast(transform.position + raycastPosition, Vector3.down, out hit, rayCastDistance, layerMask))
+        if (Physics.Raycast(transform.position + raycastPosition, Vector3.down, out var hit, rayCastDistance, layerMask))
         {
-            transform.SetParent(hit.collider.transform);
+            ungroundedDeltaTime = 0;
+            GroundedEvents.current.Grounded(true);
+            transform.SetParent(hit.collider.CompareTag(platformTag) ? hit.collider.transform : null);
         }
         else
         {
-            transform.SetParent(null);
+            ungroundedDeltaTime += Time.deltaTime;
+            if (ungroundedDeltaTime > ungripDeltaThreshold) {
+                GroundedEvents.current.Grounded(false);
+                transform.SetParent(null);
+            }
         }
     }
     
