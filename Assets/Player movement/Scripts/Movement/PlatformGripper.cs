@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using GGJ.Platform;
@@ -5,17 +6,31 @@ using UnityEngine;
 
 public class PlatformGripper : MonoBehaviour
 {
-    private void OnTriggerEnter(Collider other)
+    public Vector3 raycastPosition;
+    public float rayCastDistance;
+    public LayerMask layerMask;
+
+    private void LateUpdate()
     {
-        if (other.gameObject.GetComponent<Platform>()) {
-            transform.SetParent(other.transform);
+        RaycastHit hit;
+        // Does the ray intersect any objects excluding the player layer
+        if (Physics.Raycast(transform.position + raycastPosition, Vector3.down, out hit, rayCastDistance, layerMask))
+        {
+            transform.SetParent(hit.collider.transform);
+        }
+        else
+        {
+            transform.SetParent(null);
         }
     }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.GetComponent<Platform>()) {
-            transform.SetParent(null);
+    
+    private void OnDrawGizmos() {
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawSphere(raycastPosition + Vector3.down*0.05f, 0.05f);
+            Gizmos.DrawLine(raycastPosition, raycastPosition + Vector3.down*rayCastDistance);
+            Gizmos.DrawSphere(raycastPosition+ Vector3.down*(rayCastDistance - 0.05f), 0.05f);
         }
     }
 }
