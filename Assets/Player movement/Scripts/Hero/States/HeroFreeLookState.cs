@@ -3,9 +3,13 @@ using UnityEngine;
 public class HeroFreeLookState : HeroBaseState
 {
     private readonly int FreeLookSpeedHash = Animator.StringToHash("FreeLookSpeed");
+    private readonly int IdleBlendAnimHash = Animator.StringToHash("IdleBlendAnim");
     private readonly int FreeLookBlendTreeHash = Animator.StringToHash("FreeLookBlendTree");
     private const float AnimatorDampTime = 0.1f;
     private const float CrossFadeDuration = 0.1f;
+    private float chanceToChangeIdleAnim = 0.50f;
+    private int countIdleAnims = 2;
+    private float currentIdleState = 0f;
 
 
     public HeroFreeLookState(HeroStateMachine stateMachine) : base(stateMachine) {}
@@ -34,6 +38,7 @@ public class HeroFreeLookState : HeroBaseState
 
         if (stateMachine.InputReader.MovementValue == Vector2.zero) {
             stateMachine.Animator.SetFloat(FreeLookSpeedHash, 0, AnimatorDampTime, deltaTime);
+            SelectRandomIdleAnimation(deltaTime);
             return;
         }
 
@@ -45,6 +50,17 @@ public class HeroFreeLookState : HeroBaseState
     {
         stateMachine.InputReader.JumpEvent -= OnJump;
         stateMachine.InputReader.DashEvent -= OnDash;
+    }
+
+    private void SelectRandomIdleAnimation(float deltaTime)
+    {
+        stateMachine.Animator.SetFloat(IdleBlendAnimHash, currentIdleState, AnimatorDampTime, deltaTime);
+
+        if (stateMachine.Animator.GetCurrentAnimatorStateInfo(0).normalizedTime % 1 > 0.98f) {
+            if (Random.Range(0, 1) <= chanceToChangeIdleAnim) {
+                currentIdleState = Random.Range(0, countIdleAnims);
+            }
+        }
     }
 
     private void OnJump()
