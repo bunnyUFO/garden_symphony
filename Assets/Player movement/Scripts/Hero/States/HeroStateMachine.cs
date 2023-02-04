@@ -9,6 +9,7 @@ public class HeroStateMachine : StateMachine
     [field: SerializeField] public float JumpForce { get; private set; }
     
     [field: SerializeField, Range(0, 1) ] public float MomentumFactor { get; private set; }
+    [field: SerializeField] public float FallDeltaThreshold { get; private set; }
     [field: SerializeField] public float AerialMovementSpeed { get; private set; }
     [field: SerializeField] public float DashDuration { get; private set; }
     [field: SerializeField] public float DashDistance { get; private set; }

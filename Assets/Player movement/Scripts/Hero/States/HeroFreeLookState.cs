@@ -10,6 +10,7 @@ public class HeroFreeLookState : HeroBaseState
     private float chanceToChangeIdleAnim = 0.50f;
     private int countIdleAnims = 2;
     private float currentIdleState = 0f;
+    private float groundedDelta = 0f;
 
 
     public HeroFreeLookState(HeroStateMachine stateMachine) : base(stateMachine) {}
@@ -27,7 +28,17 @@ public class HeroFreeLookState : HeroBaseState
 
     public override void Tick(float deltaTime) 
     {
-        if (!stateMachine.Controller.isGrounded) {
+        if (!stateMachine.Controller.isGrounded)
+        {
+            groundedDelta += deltaTime;
+        }
+        else
+        {
+            groundedDelta = 0;
+        }
+
+        if (groundedDelta > stateMachine.FallDeltaThreshold)
+        {
             stateMachine.SwitchState(new HeroFallingState(stateMachine));
             return;
         }
