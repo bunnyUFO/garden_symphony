@@ -116,10 +116,10 @@ namespace SplineMesh {
                     typeof(MeshBender),
                     typeof(MeshCollider));
                 res.isStatic = !updateInPlayMode;
+                res.GetComponent<MeshRenderer>().material = material;
             } else {
                 res = childTransform.gameObject;
             }
-            res.GetComponent<MeshRenderer>().material = material;
             res.GetComponent<MeshCollider>().material = physicMaterial;
             MeshBender mb = res.GetComponent<MeshBender>();
             mb.Source = SourceMesh.Build(mesh)
