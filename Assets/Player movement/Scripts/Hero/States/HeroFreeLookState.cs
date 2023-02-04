@@ -6,6 +6,7 @@ public class HeroFreeLookState : HeroBaseState
     private readonly int FreeLookBlendTreeHash = Animator.StringToHash("FreeLookBlendTree");
     private const float AnimatorDampTime = 0.1f;
     private const float CrossFadeDuration = 0.1f;
+    private float groundedDelta = 0f;
 
 
     public HeroFreeLookState(HeroStateMachine stateMachine) : base(stateMachine) {}
@@ -23,7 +24,17 @@ public class HeroFreeLookState : HeroBaseState
 
     public override void Tick(float deltaTime) 
     {
-        if (!stateMachine.Controller.isGrounded) {
+        if (!stateMachine.Controller.isGrounded)
+        {
+            groundedDelta += deltaTime;
+        }
+        else
+        {
+            groundedDelta = 0;
+        }
+
+        if (groundedDelta > stateMachine.FallDeltaThreshold)
+        {
             stateMachine.SwitchState(new HeroFallingState(stateMachine));
             return;
         }

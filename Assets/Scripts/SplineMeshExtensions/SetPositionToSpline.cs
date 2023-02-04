@@ -2,6 +2,7 @@
 using UnityEditor;
 using UnityEngine;
 using SplineMesh;
+using UnityEngine.UIElements;
 
 namespace SplineMeshExtensions
 { 
@@ -11,6 +12,7 @@ namespace SplineMeshExtensions
         public Spline spline;
         [Range(0, 1)]
         public float rate;
+        public Vector3 offset;
 
         private void Update()
         {
@@ -39,7 +41,8 @@ namespace SplineMeshExtensions
         private void CalculatePosition()
         {
             if(spline is null) return; 
-            transform.position = spline.transform.position +  spline.GetSampleAtDistance(rate*spline.Length).location;
+            // will break if spline or parent has a rotation
+            transform.position = spline.transform.position +  spline.GetSampleAtDistance(rate*spline.Length).location + offset;
         }
     }
 }

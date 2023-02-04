@@ -27,10 +27,11 @@ public class PlatformGripper : MonoBehaviour
     private void OnDrawGizmos() {
         for (int i = 0; i < transform.childCount; i++)
         {
+            Vector3 position = transform.position + raycastPosition;
             Gizmos.color = Color.red;
-            Gizmos.DrawSphere(raycastPosition + Vector3.down*0.05f, 0.05f);
-            Gizmos.DrawLine(raycastPosition, raycastPosition + Vector3.down*rayCastDistance);
-            Gizmos.DrawSphere(raycastPosition+ Vector3.down*(rayCastDistance - 0.05f), 0.05f);
+            Gizmos.DrawSphere(position + Vector3.down*0.05f, 0.05f);
+            Gizmos.DrawLine(position, position + Vector3.down*rayCastDistance);
+            Gizmos.DrawSphere(position + Vector3.down*(rayCastDistance - 0.05f), 0.05f);
         }
     }
 }
