@@ -264,7 +264,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""08c43aa2-8831-48a7-8535-618aa290dc59"",
-                    ""path"": ""<Keyboard>/e"",
+                    ""path"": ""<Keyboard>/ctrl"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard & Mouse"",

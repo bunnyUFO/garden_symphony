@@ -25,6 +25,7 @@ public class HeroHoveringState : HeroBaseState
     {
         Vector3 movement = CalculateMovement();
 
+        stateMachine.ForceReceiver.Reset();
         Move(movement * stateMachine.HoverMovementSpeed, deltaTime);
 
         FaceMovementDirection(movement, deltaTime);
