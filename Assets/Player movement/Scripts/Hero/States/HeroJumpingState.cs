@@ -69,7 +69,7 @@ public class HeroJumpingState : HeroBaseState
     private void OnJump()
     {
         if (stateMachine.AbilityTracker.TryAddAbility("Jump")) {
-            stateMachine.SwitchState(new HeroJumpingState(stateMachine));
+            stateMachine.SwitchState(new HeroJumpingState(stateMachine, false));
         }
     }
 
