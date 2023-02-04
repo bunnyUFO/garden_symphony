@@ -22,7 +22,7 @@ public class HeroJumpingState : HeroBaseState
         stateMachine.InputReader.DashEvent += OnDash;
         stateMachine.InputReader.HoverEvent += OnHover;
 
-        stateMachine.ForceReceiver.Jump(stateMachine.JumpForce);
+        stateMachine.ForceReceiver.Jump(stateMachine.JumpForce, transferMomentum);
 
         if (transferMomentum) {
             momentum = stateMachine.Controller.velocity;

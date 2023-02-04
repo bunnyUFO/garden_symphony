@@ -11,7 +11,7 @@ public class HeroFallingState : HeroBaseState
     private bool transferMomentum;
 
 
-    public HeroFallingState(HeroStateMachine stateMachine, bool transferMomentum = true) : base(stateMachine) 
+    public HeroFallingState(HeroStateMachine stateMachine, bool transferMomentum = false) : base(stateMachine) 
     {
         this.transferMomentum = transferMomentum;
     }
@@ -56,7 +56,7 @@ public class HeroFallingState : HeroBaseState
     private void OnJump()
     {
         if (stateMachine.AbilityTracker.TryAddAbility("Jump")) {
-            stateMachine.SwitchState(new HeroJumpingState(stateMachine));
+            stateMachine.SwitchState(new HeroJumpingState(stateMachine, false));
         }
     }
 

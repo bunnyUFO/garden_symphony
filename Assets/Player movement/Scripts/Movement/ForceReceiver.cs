@@ -30,9 +30,16 @@ public class ForceReceiver : MonoBehaviour
         impact += force;
     }
 
-    public void Jump(float jumpForce)
+    public void Jump(float jumpForce, bool useForce = true)
     {
-        verticalVelocity += jumpForce;
+        if (useForce)
+        {
+            verticalVelocity += jumpForce;
+        }
+        else
+        {
+            verticalVelocity = jumpForce;
+        }
     }
 
     public void Reset()
