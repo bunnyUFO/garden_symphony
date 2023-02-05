@@ -221,7 +221,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""f37c0eaf-acb0-4615-8e2d-de340b0d581c"",
                     ""path"": ""<Keyboard>/space"",
-                    ""interactions"": ""Tap(duration=0.3999)"",
+                    ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard & Mouse"",
                     ""action"": ""Jump"",
@@ -252,6 +252,17 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""c322a365-bb0b-4451-93cb-6fdf8ba86286"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard & Mouse"",
+                    ""action"": ""Dash"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""5740e7e2-e9ac-4a68-a20e-47f9301d2a95"",
                     ""path"": ""<Gamepad>/buttonEast"",
                     ""interactions"": """",
@@ -264,8 +275,8 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""08c43aa2-8831-48a7-8535-618aa290dc59"",
-                    ""path"": ""<Keyboard>/space"",
-                    ""interactions"": ""Hold"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard & Mouse"",
                     ""action"": ""Hover"",
