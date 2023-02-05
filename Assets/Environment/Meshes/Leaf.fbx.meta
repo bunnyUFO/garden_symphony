@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Environment/Meshes/Leaf.fbx.meta
 guid: e22b5a01e5cf04679ab3e900e41c7e14
+========
+guid: 9c264025c86d044a0923748e8ed73cff
+>>>>>>>> fb362cd3d572562e4c1555f2e5a9c6d78950a93f:Assets/Environment/Meshes/Venus.fbx.meta
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
