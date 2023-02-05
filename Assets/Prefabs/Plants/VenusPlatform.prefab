@@ -971,6 +971,7 @@ GameObject:
   - component: {fileID: 7227081419331163803}
   - component: {fileID: 2910440579096291035}
   - component: {fileID: 5641278074090682430}
+  - component: {fileID: 7764186484506100686}
   m_Layer: 0
   m_Name: Venus
   m_TagString: Untagged
@@ -992,6 +993,7 @@ Transform:
   m_Children:
   - {fileID: 1800055636351026693}
   - {fileID: 1070183747370203237}
+  - {fileID: 7928825732007552431}
   m_Father: {fileID: 6507534830979669707}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: -84.07, z: 0}
@@ -1030,6 +1032,65 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!114 &7764186484506100686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7998411552610782241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2e688170e14c234a9a582d01ca3085e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  biteDuration: 0.9
+  biteDetector: {fileID: 8667379941215541277}
+--- !u!1 &8667379941215541277
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7928825732007552431}
+  - component: {fileID: 2845526662458612974}
+  m_Layer: 0
+  m_Name: BiteDetector
+  m_TagString: Respawn
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &7928825732007552431
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8667379941215541277}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7227081419331163803}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &2845526662458612974
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8667379941215541277}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.5, y: 2.7, z: 1.5}
+  m_Center: {x: 0, y: 1.35, z: 0}
 --- !u!1 &9027406980323758059
 GameObject:
   m_ObjectHideFlags: 0
