@@ -27,8 +27,7 @@ public class HeroFreeLookState : HeroBaseState
 
     public override void Tick(float deltaTime)
     {
-        SetGroundedDelta(deltaTime);
-        if (groundedDelta > stateMachine.FallDeltaThreshold)
+        if (!stateMachine.Grounded)
         {
             stateMachine.SwitchState(new HeroFallingState(stateMachine));
             return;

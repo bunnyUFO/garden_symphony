@@ -4,7 +4,6 @@ using GGJ.StateMachine;
 public abstract class HeroBaseState : State 
 {
     protected HeroStateMachine stateMachine;
-    protected float groundedDelta;
 
 
     public HeroBaseState(HeroStateMachine stateMachine)
@@ -19,24 +18,7 @@ public abstract class HeroBaseState : State
     
     protected void Move(Vector3 motion, float deltaTime)
     {
-        stateMachine.Controller.Move((motion + stateMachine.ForceReceiver.Movement) * deltaTime);
-    }
-
-    public override void Tick(float deltaTime)
-    {
-        SetGroundedDelta(deltaTime);
-    }
-
-    protected void SetGroundedDelta(float deltaTime)
-    {
-        if (!stateMachine.Grounded)
-        {
-            groundedDelta += deltaTime;
-        }
-        else
-        {
-            groundedDelta = 0;
-        }
+        stateMachine.Controller.Move((motion + stateMachine.ForceReceiver.Movement + stateMachine.PlatformVelocity) * deltaTime);
     }
 
     protected Vector3 CalculateMovement()
