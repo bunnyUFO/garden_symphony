@@ -6,14 +6,15 @@ public class HeroStateMachine : StateMachine
 {
     [field: Header("Movement")]
     [field: SerializeField] public float FreeLookMovementSpeed { get; private set; }
+    [field: SerializeField] public float AerialMovementSpeed { get; private set; }
+    [field: SerializeField] public float HoverMovementSpeed { get; private set; }
+    [field: SerializeField] public float MaxJumpSpeed { get; private set; }
+    [field: SerializeField] public Vector3 PlatformVelocity { get; private set; }
     [field: SerializeField] public float RotationDamping { get; private set; }
     [field: SerializeField] public float JumpForce { get; private set; }
-    
     [field: SerializeField, Range(0, 1) ] public float MomentumFactor { get; private set; }
-    [field: SerializeField] public float AerialMovementSpeed { get; private set; }
     [field: SerializeField] public float DashDuration { get; private set; }
     [field: SerializeField] public float DashDistance { get; private set; }
-    [field: SerializeField] public float HoverMovementSpeed { get; private set; }
     [field: SerializeField] public float HoverDuration { get; private set; }
 
     [field: Header("Components")]
@@ -24,7 +25,6 @@ public class HeroStateMachine : StateMachine
     [field: SerializeField] public AbilityTracker AbilityTracker { get; private set; }
     [field: SerializeField] public bool Grounded { get; private set; }
     [field: SerializeField] public bool OnPlatform { get; private set; }
-    [field: SerializeField] public Vector3 PlatformVelocity { get; private set; }
 
     public Transform mainCameraTransform { get; private set; }
 

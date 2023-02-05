@@ -19,7 +19,7 @@ public class PlatformGripper : MonoBehaviour
     private Collider previousCollider;
     private Vector3 previousPosition;
 
-    private void FixedUpdate()
+    private void LateUpdate()
     {
         // Does the ray intersect any objects excluding the player layer
         if (Physics.SphereCast(transform.position + raycastPosition, rayCastRadius, Vector3.down, out var hit, rayCastDistance, layerMask))
@@ -37,6 +37,10 @@ public class PlatformGripper : MonoBehaviour
                     Vector3 velocity = (newPosition - previousPosition)/Time.deltaTime;
                     velocity = velocity.magnitude < maxVelocity ? velocity : velocity.normalized * maxVelocity;
                     GroundedEvents.current.PlatformUpdate(true, velocity);
+                }
+                else
+                {
+                    GroundedEvents.current.PlatformUpdate(true, Vector3.zero);
                 }
 
                 previousPosition = newPosition;

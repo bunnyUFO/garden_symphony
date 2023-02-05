@@ -35,7 +35,7 @@ public class HeroFreeLookState : HeroBaseState
 
         Vector3 movement = CalculateMovement();
 
-        Move(movement * stateMachine.FreeLookMovementSpeed, deltaTime);
+        Move(movement * stateMachine.FreeLookMovementSpeed, deltaTime, stateMachine.OnPlatform);
 
         if (stateMachine.InputReader.MovementValue == Vector2.zero) {
             stateMachine.Animator.SetFloat(FreeLookSpeedHash, 0, AnimatorDampTime, deltaTime);
@@ -66,7 +66,12 @@ public class HeroFreeLookState : HeroBaseState
 
     private void OnJump()
     {
-        stateMachine.SwitchState(new HeroJumpingState(stateMachine));
+        // Jumping while moving fast on platforms causes issues
+        // decided to not allow jumps if moving fast
+        if (stateMachine.PlatformVelocity.magnitude < 3)
+        {
+            stateMachine.SwitchState(new HeroJumpingState(stateMachine));   
+        }
     }
 
     private void OnDash()
