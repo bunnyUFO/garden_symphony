@@ -23,7 +23,6 @@ namespace RythmFramework
 
         public void OnBeat()
         {
-            Debug.Log("It's a beat event!");
             if(beat) beatAction.Invoke();
         }
         
@@ -33,7 +32,6 @@ namespace RythmFramework
             {
                 int markerIndex = markers.IndexOf(markerName);
                 if(markerIndex > -1) markerActions[markerIndex].Invoke();
-                Debug.Log($"It's a {markerName} marker event!");
             }
         }
     }

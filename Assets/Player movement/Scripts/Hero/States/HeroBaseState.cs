@@ -18,7 +18,7 @@ public abstract class HeroBaseState : State
     
     protected void Move(Vector3 motion, float deltaTime)
     {
-        stateMachine.Controller.Move((motion + stateMachine.ForceReceiver.Movement) * deltaTime);
+        stateMachine.Controller.Move((motion + stateMachine.ForceReceiver.Movement + stateMachine.PlatformVelocity) * deltaTime);
     }
 
     protected Vector3 CalculateMovement()
@@ -48,7 +48,7 @@ public abstract class HeroBaseState : State
 
     protected void ReturnToLocomotion(bool transferMomentum = true)
     {
-        if (!stateMachine.Controller.isGrounded) {
+        if (!stateMachine.Grounded) {
             stateMachine.SwitchState(new HeroFallingState(stateMachine, transferMomentum));
         } else {
             stateMachine.SwitchState(new HeroFreeLookState(stateMachine));

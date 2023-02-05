@@ -40,7 +40,7 @@ public class HeroFallingState : HeroBaseState
 
         FaceMovementDirection(movement, deltaTime);
 
-        if (stateMachine.Controller.isGrounded) {
+        if (stateMachine.Grounded) {
             stateMachine.SwitchState(new HeroLandingState(stateMachine));
             return;
         }
