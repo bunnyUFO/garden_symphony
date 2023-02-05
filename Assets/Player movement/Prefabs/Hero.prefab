@@ -5103,8 +5103,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfe0f7bc7008c8540a18d68fffb14686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPosition: {x: 0, y: 0, z: 0}
-  spawnRotation: {x: 0, y: 0, z: 0}
+  fadeTime: 1
 --- !u!114 &3688722803409119757
 MonoBehaviour:
   m_ObjectHideFlags: 0

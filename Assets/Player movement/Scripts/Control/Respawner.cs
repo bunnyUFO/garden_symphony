@@ -4,9 +4,20 @@ using UnityEngine;
 
 public class Respawner : MonoBehaviour
 {
+    [SerializeField] float fadeTime = 1f;
+
     private Vector3 spawnPosition;
     private Vector3 spawnRotation;
 
+    Fader fader;
+    HeroStateMachine stateMachine;
+
+
+    private void Awake()
+    {
+        fader = GameObject.FindObjectOfType<Fader>();
+        stateMachine = GetComponent<HeroStateMachine>();
+    }
 
     private void Start()
     {
@@ -14,12 +25,16 @@ public class Respawner : MonoBehaviour
         spawnRotation = gameObject.transform.eulerAngles;
     }
 
-    private void Respawn()
+    IEnumerator Respawn()
     {
-        GetComponent<HeroStateMachine>().Controller.enabled = false;
+        stateMachine.SwitchState(new HeroRespawningState(stateMachine));
+        yield return fader.FadeOut(fadeTime);
+        stateMachine.Controller.enabled = false;
         gameObject.transform.position = spawnPosition;
         gameObject.transform.eulerAngles = spawnRotation;
-        GetComponent<HeroStateMachine>().Controller.enabled = true;
+        stateMachine.Controller.enabled = true;
+        yield return fader.FadeIn(fadeTime);
+        stateMachine.SwitchState(new HeroFreeLookState(stateMachine));
     }
 
     private void OnTriggerEnter(Collider other)
@@ -30,7 +45,7 @@ public class Respawner : MonoBehaviour
             spawnRotation = checkpoint.SpawnPoint.eulerAngles;
         } else if (other.gameObject.CompareTag("Respawn")) {
             //Debug.Log($"Respawn!");
-            Respawn();
+            StartCoroutine(Respawn());
         }
     }
 }
