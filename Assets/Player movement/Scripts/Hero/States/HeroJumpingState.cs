@@ -34,9 +34,8 @@ public class HeroJumpingState : HeroBaseState
             momentum = Vector3.zero;
         }
 
-        stateMachine.DustRingParticles.Play();
-
         if (!stateMachine.Grounded) {
+            stateMachine.DustRingParticles.Play();
             stateMachine.Animator.CrossFadeInFixedTime(DoubleJumpHash, CrossFadeDuration);    
         } else if (stateMachine.Controller.velocity.magnitude >= runningJumpSpeed) {
             stateMachine.Animator.CrossFadeInFixedTime(RunningJumpHash, CrossFadeDuration);    
