@@ -34,16 +34,14 @@ public class HeroFallingState : HeroBaseState
 
     public override void Tick(float deltaTime) 
     {
-        Vector3 movement = CalculateMovement();
-
-        Move(movement * stateMachine.AerialMovementSpeed + momentum, deltaTime, stateMachine.OnPlatform);
-
-        FaceMovementDirection(movement, deltaTime);
-
         if (stateMachine.Grounded) {
-            stateMachine.SwitchState(new HeroLandingState(stateMachine));
+            ReturnToLocomotion();
             return;
         }
+     
+        Vector3 movement = CalculateMovement();
+        FaceMovementDirection(movement, deltaTime);
+        Move(movement * stateMachine.AerialMovementSpeed + momentum, deltaTime, stateMachine.OnPlatform);
     }
 
     public override void Exit() 

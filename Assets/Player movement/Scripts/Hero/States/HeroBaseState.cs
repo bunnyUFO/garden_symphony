@@ -43,10 +43,14 @@ public abstract class HeroBaseState : State
         );
     }
 
-    protected void ReturnToLocomotion(bool transferMomentum = true)
+    protected void ReturnToLocomotion()
     {
-        if (!stateMachine.Grounded) {
-            stateMachine.SwitchState(new HeroFallingState(stateMachine, transferMomentum));
+        if (stateMachine.OnPlatform)
+        {
+            stateMachine.SwitchState(new HeroFreeLookState(stateMachine));
+        }
+        else if (!stateMachine.Grounded) {
+            stateMachine.SwitchState(new HeroFallingState(stateMachine));
         } else {
             stateMachine.SwitchState(new HeroFreeLookState(stateMachine));
         }

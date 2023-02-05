@@ -38,7 +38,7 @@ public class HeroDashingState : HeroBaseState
         remainingDashTime -= deltaTime;
 
         if (remainingDashTime <= 0f) {
-            ReturnToLocomotion(false);
+            ReturnToLocomotion();
         }
     }
 

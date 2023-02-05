@@ -26,14 +26,14 @@ public class HeroHoveringState : HeroBaseState
         Vector3 movement = CalculateMovement();
 
         stateMachine.ForceReceiver.Reset();
-        Move(movement * stateMachine.HoverMovementSpeed, deltaTime);
+        Move(movement * stateMachine.HoverMovementSpeed, deltaTime, stateMachine.OnPlatform);
 
         FaceMovementDirection(movement, deltaTime);
 
         remainingHoverTime -= deltaTime;
 
-        if (remainingHoverTime <= 0f || !stateMachine.InputReader.HoverButtonDown) {
-            ReturnToLocomotion(false);
+        if (remainingHoverTime <= 0f || !stateMachine.InputReader.HoverButtonDown || stateMachine.OnPlatform) {
+            ReturnToLocomotion();
         }
     }
 
