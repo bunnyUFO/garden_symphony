@@ -17,6 +17,11 @@ public class HeroStateMachine : StateMachine
     [field: SerializeField] public float DashDistance { get; private set; }
     [field: SerializeField] public float HoverDuration { get; private set; }
 
+    [field: Header("Particle Effects")]
+    [field: SerializeField] public ParticleSystem DustRingParticles { get; private set; }
+    [field: SerializeField] public ParticleSystem FeatherDropParticles { get; private set; }
+    [field: SerializeField] public ParticleSystem SpeedRayParticles { get; private set; }
+
     [field: Header("Components")]
     [field: SerializeField] public InputReader InputReader { get; private set; }
     [field: SerializeField] public CharacterController Controller { get; private set; }

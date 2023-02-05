@@ -19,6 +19,8 @@ public class HeroHoveringState : HeroBaseState
         remainingHoverTime = stateMachine.HoverDuration;
         
         stateMachine.Animator.CrossFadeInFixedTime(HoveringHash, CrossFadeDuration);
+
+        stateMachine.FeatherDropParticles.Play();
     }
 
     public override void Tick(float deltaTime) 
@@ -41,6 +43,8 @@ public class HeroHoveringState : HeroBaseState
     {
         stateMachine.InputReader.JumpEvent -= OnJump;
         stateMachine.InputReader.DashEvent -= OnDash;
+
+        stateMachine.FeatherDropParticles.Stop();
     }
 
     private void OnJump()

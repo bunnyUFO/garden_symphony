@@ -24,6 +24,8 @@ public class HeroDashingState : HeroBaseState
         remainingDashTime = stateMachine.DashDuration;
 
         stateMachine.Animator.CrossFadeInFixedTime(DashingHash, CrossFadeDuration);
+
+        stateMachine.SpeedRayParticles.Play();
     }
 
     public override void Tick(float deltaTime) 
@@ -46,6 +48,8 @@ public class HeroDashingState : HeroBaseState
     {
         stateMachine.InputReader.JumpEvent -= OnJump;
         stateMachine.InputReader.HoverEvent -= OnHover;
+
+        stateMachine.SpeedRayParticles.Stop();
     }
 
     private void OnJump()
