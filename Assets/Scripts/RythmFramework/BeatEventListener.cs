@@ -9,21 +9,31 @@ namespace RythmFramework
 {
     public class BeatEventListener : MonoBehaviour
     {
-        public bool beat;
-        public UnityEvent beatAction;
+        public List<int> beatCounts = new List<int>();
+        public List<int> beatOffsets = new List<int>();
+        public List<UnityEvent> beatActions = new List<UnityEvent>();
         
         public List<string> markers = new List<string>();
         public List<UnityEvent> markerActions = new List<UnityEvent>();
 
+        private int beatCount = 0;
+        
         private void Start()
         {
-            if(beat) BeatEvents.current.OnBeat += OnBeat;
+            if(beatCounts.Count > 0) BeatEvents.current.OnBeat += OnBeat;
             if(markers.Count > 0) BeatEvents.current.OnBeatMarker += OnMarker;
         }
 
         public void OnBeat()
         {
-            if(beat) beatAction.Invoke();
+            beatCount++;
+            for (int i = 0; i < beatCounts.Count; i++)
+            {
+                if ((beatCount+beatOffsets[i]) % beatCounts[i] == 0)
+                {
+                    beatActions[i].Invoke();
+                }
+            }
         }
         
         public void OnMarker(string markerName)
