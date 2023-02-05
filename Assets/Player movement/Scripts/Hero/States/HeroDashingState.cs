@@ -33,7 +33,7 @@ public class HeroDashingState : HeroBaseState
         movement += stateMachine.transform.right * dashDirectionInput.x * stateMachine.DashDistance / stateMachine.DashDuration;
         movement += stateMachine.transform.forward * dashDirectionInput.y * stateMachine.DashDistance / stateMachine.DashDuration;
 
-        Move(movement, deltaTime);
+        Move(movement, deltaTime, stateMachine.OnPlatform, true);
 
         remainingDashTime -= deltaTime;
 

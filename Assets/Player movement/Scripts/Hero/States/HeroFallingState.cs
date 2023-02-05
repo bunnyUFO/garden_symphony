@@ -36,7 +36,7 @@ public class HeroFallingState : HeroBaseState
     {
         Vector3 movement = CalculateMovement();
 
-        Move(movement * stateMachine.AerialMovementSpeed + momentum, deltaTime);
+        Move(movement * stateMachine.AerialMovementSpeed + momentum, deltaTime, stateMachine.OnPlatform);
 
         FaceMovementDirection(movement, deltaTime);
 

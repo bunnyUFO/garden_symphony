@@ -45,8 +45,6 @@ public class HeroJumpingState : HeroBaseState
 
     public override void Tick(float deltaTime) 
     {
-        //Move(momentum, deltaTime);
-
         Vector3 movement = CalculateMovement();
 
         Move(movement * stateMachine.AerialMovementSpeed + momentum, deltaTime);

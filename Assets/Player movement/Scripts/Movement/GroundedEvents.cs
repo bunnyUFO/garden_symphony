@@ -26,11 +26,11 @@ namespace RythmFramework
         
         public event Action<bool, Vector3> OnPlatform;
 
-        public void PlatformUpdate(bool grounded, Vector3 velocity)
+        public void PlatformUpdate(bool onPlatform, Vector3 velocity)
         {
             if (OnPlatform != null)
             {
-                OnPlatform(grounded, velocity);
+                OnPlatform(onPlatform, velocity);
             }
         }
     }
