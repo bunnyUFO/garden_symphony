@@ -28,7 +28,7 @@ public class HeroJumpingState : HeroBaseState
         stateMachine.ForceReceiver.Jump(stateMachine.JumpForce, transferMomentum);
 
         if (transferMomentum) {
-            momentum = stateMachine.Controller.velocity;
+            momentum = stateMachine.Controller.velocity * stateMachine.MomentumFactor;
             momentum.y = 0f;
         } else {
             momentum = Vector3.zero;

@@ -29,7 +29,7 @@ namespace RythmFramework
         }
         
         [AOT.MonoPInvokeCallback(typeof(EVENT_CALLBACK))]
-        public FMOD.RESULT StudioEventCallback(EVENT_CALLBACK_TYPE type, IntPtr eventInstance, IntPtr parameters)
+        public static FMOD.RESULT StudioEventCallback(EVENT_CALLBACK_TYPE type, IntPtr eventInstance, IntPtr parameters)
         {
             if (type == EVENT_CALLBACK_TYPE.TIMELINE_MARKER)
             {
