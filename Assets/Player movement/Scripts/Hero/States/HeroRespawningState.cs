@@ -23,7 +23,10 @@ public class HeroRespawningState : HeroBaseState
         stateMachine.Ragdoll.ToggleRagdoll(true);
     }
 
-    public override void Tick(float deltaTime) {}
+    public override void Tick(float deltaTime) 
+    {
+        Move(Vector3.zero, deltaTime);
+    }
 
     public override void Exit() 
     {
