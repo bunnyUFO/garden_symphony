@@ -695,7 +695,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9843c4c1f28a98d4ba2326186712c580, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enableDistance: 45
+  enableDistance: 30
 --- !u!1 &7522671868955544613
 GameObject:
   m_ObjectHideFlags: 0
@@ -845,6 +845,7 @@ MonoBehaviour:
         m_CallState: 2
   markers: []
   markerActions: []
+  ignore: 0
 --- !u!1 &7522671869920072836
 GameObject:
   m_ObjectHideFlags: 0
@@ -964,3 +965,4 @@ MonoBehaviour:
         m_CallState: 2
   markers: []
   markerActions: []
+  ignore: 0
