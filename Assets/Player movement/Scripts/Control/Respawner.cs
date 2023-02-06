@@ -28,14 +28,15 @@ public class Respawner : MonoBehaviour
     IEnumerator Respawn()
     {
         stateMachine.SwitchState(new HeroRespawningState(stateMachine));
+        yield return new WaitForSeconds(fadeTime);
         yield return fader.FadeOut(fadeTime);
-        stateMachine.Controller.enabled = false;
+        stateMachine.InputReader.enabled = false;
         gameObject.transform.position = spawnPosition;
         gameObject.transform.eulerAngles = spawnRotation;
         stateMachine.SwitchState(new HeroFreeLookState(stateMachine));
         yield return new WaitForSeconds(fadeTime);
         yield return fader.FadeIn(fadeTime);
-        stateMachine.Controller.enabled = true;
+        stateMachine.InputReader.enabled = true;
         
     }
 
