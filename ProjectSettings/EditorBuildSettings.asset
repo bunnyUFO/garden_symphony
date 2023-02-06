@@ -14,7 +14,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Player movement/Scenes/Sandbox2.unity
     guid: e51ada73ba6ea904c80ef4aaad0b8cc6
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/TestScenes/RootTest.unity
     guid: 2ac739b220267134396d931884ef11f9
+  - enabled: 1
+    path: Assets/Scenes/TestScenes/MainLevel.unity
+    guid: 65c73968a3043421886b50950cca5b9b
   m_configObjects: {}
