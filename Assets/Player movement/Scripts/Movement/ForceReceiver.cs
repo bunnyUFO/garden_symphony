@@ -13,7 +13,7 @@ public class ForceReceiver : MonoBehaviour
     private float verticalVelocity;
 
 
-    public Vector3 Movement => Vector3.up * verticalVelocity;
+    public Vector3 Movement => impact + Vector3.up * verticalVelocity;
 
     private void Update()
     {
