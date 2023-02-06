@@ -15,10 +15,10 @@ public class HeroRespawningState : HeroBaseState
     public override void Enter() 
     {
         stateMachine.InputReader.enabled = false;
-        stateMachine.ForceReceiver.Reset();
+        //stateMachine.ForceReceiver.Reset();
 
         stateMachine.Animator.SetFloat(FreeLookSpeedHash, 0f);
-        stateMachine.Animator.CrossFadeInFixedTime(FreeLookBlendTreeHash, CrossFadeDuration);
+        //stateMachine.Animator.CrossFadeInFixedTime(FreeLookBlendTreeHash, CrossFadeDuration);
 
         stateMachine.Ragdoll.ToggleRagdoll(true);
     }
