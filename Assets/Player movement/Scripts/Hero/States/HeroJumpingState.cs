@@ -34,12 +34,23 @@ public class HeroJumpingState : HeroBaseState
             momentum = Vector3.zero;
         }
 
-        if (!stateMachine.Grounded) {
+        if (!stateMachine.Grounded)
+        {
+            //WebGL does not like serialized objects
+            // SoundManager.Instance.PlaySound("Wrenford", "DoubleJump", 5f);
+            FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/DoubleJump");
+
             stateMachine.DustRingParticles.Play();
             stateMachine.Animator.CrossFadeInFixedTime(DoubleJumpHash, CrossFadeDuration);    
         } else if (stateMachine.Controller.velocity.magnitude >= runningJumpSpeed) {
+            // SoundManager.Instance.PlaySound("Wrenford", "Jump", 5f);
+            FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Jump");
+
             stateMachine.Animator.CrossFadeInFixedTime(RunningJumpHash, CrossFadeDuration);    
         } else {
+            // SoundManager.Instance.PlaySound("Wrenford", "Jump", 5f);
+            FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Jump");
+
             stateMachine.Animator.CrossFadeInFixedTime(JumpingHash, CrossFadeDuration);
         }
     }

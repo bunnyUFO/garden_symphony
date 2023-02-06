@@ -2,10 +2,10 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="Event" id="{88adf8bd-7d5a-46ae-96d7-268ef94c0103}">
 		<property name="name">
-			<value>2nd Jump</value>
+			<value>DoubleJump</value>
 		</property>
 		<property name="outputFormat">
-			<value>2</value>
+			<value>1</value>
 		</property>
 		<relationship name="folder">
 			<destination>{328913e5-e9bb-47e2-afc6-37450e38a4cc}</destination>
@@ -33,6 +33,9 @@
 		</relationship>
 		<relationship name="parameters">
 			<destination>{5273047b-a2a2-4e8d-b1a2-ce6d60d3947b}</destination>
+		</relationship>
+		<relationship name="banks">
+			<destination>{0ba2e1fa-ed17-4469-9e22-201e829afdb3}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixer" id="{9fe64e56-27d1-4ac8-ae13-442df9a859f0}">
@@ -115,7 +118,6 @@
 	<object class="MixerBusEffectChain" id="{ad0e5318-8ab4-40e6-b8f3-a930aa019dd6}">
 		<relationship name="effects">
 			<destination>{4651d58c-118d-4e9a-9a4f-ae2d42ed0618}</destination>
-			<destination>{a3331d58-c860-4c1d-bc5c-5d283206bcd3}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{3d6945c8-cbf2-4aea-87fa-452e24c6fb26}" />
@@ -132,6 +134,5 @@
 	</object>
 	<object class="MixerBusPanner" id="{ebf95500-6849-4d8b-bc78-039a205c5a05}" />
 	<object class="MixerBusFader" id="{4651d58c-118d-4e9a-9a4f-ae2d42ed0618}" />
-	<object class="SpatialiserEffect" id="{a3331d58-c860-4c1d-bc5c-5d283206bcd3}" />
 	<object class="MixerBusFader" id="{4727789f-dc32-4b70-b7c6-3fb650b45a79}" />
 </objects>

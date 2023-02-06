@@ -12,9 +12,9 @@ namespace RythmFramework
         public List<int> beatCounts = new List<int>();
         public List<int> beatOffsets = new List<int>();
         public List<UnityEvent> beatActions = new List<UnityEvent>();
-        
         public List<string> markers = new List<string>();
         public List<UnityEvent> markerActions = new List<UnityEvent>();
+        public bool ignore;
 
         private int beatCount = 0;
         
@@ -40,6 +40,7 @@ namespace RythmFramework
         public void OnBeat()
         {
             beatCount++;
+            if (ignore) return;
             for (int i = 0; i < beatCounts.Count; i++)
             {
                 if ((beatCount+beatOffsets[i]) % beatCounts[i] == 0)
@@ -51,6 +52,7 @@ namespace RythmFramework
         
         public void OnMarker(string markerName)
         {
+            if (ignore) return;
             if (markers.Contains(markerName))
             {
                 int markerIndex = markers.IndexOf(markerName);

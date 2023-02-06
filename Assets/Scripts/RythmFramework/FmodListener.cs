@@ -15,7 +15,7 @@ namespace RythmFramework
 
         void Start()
         {
-            instance = FMODUnity.RuntimeManager.CreateInstance(eventReference);
+            instance = SoundManager.Instance.PLayMusic();
             cb = new EVENT_CALLBACK(StudioEventCallback);
             instance.setCallback(cb, EVENT_CALLBACK_TYPE.TIMELINE_MARKER | EVENT_CALLBACK_TYPE.TIMELINE_BEAT);
             instance.start();

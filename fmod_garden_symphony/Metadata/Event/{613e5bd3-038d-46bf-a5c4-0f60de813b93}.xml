@@ -5,7 +5,7 @@
 			<value>Hover</value>
 		</property>
 		<property name="outputFormat">
-			<value>2</value>
+			<value>1</value>
 		</property>
 		<relationship name="folder">
 			<destination>{328913e5-e9bb-47e2-afc6-37450e38a4cc}</destination>
@@ -33,6 +33,9 @@
 		</relationship>
 		<relationship name="parameters">
 			<destination>{bdd10768-6570-47f1-8848-e1ccebc8a263}</destination>
+		</relationship>
+		<relationship name="banks">
+			<destination>{0ba2e1fa-ed17-4469-9e22-201e829afdb3}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixer" id="{e25a8416-2d7b-46e9-88c4-2bb5f4029785}">
@@ -115,7 +118,6 @@
 	<object class="MixerBusEffectChain" id="{6dab495f-f6a8-4993-85a8-57e96bb8b8a9}">
 		<relationship name="effects">
 			<destination>{0b81b697-9990-462e-91a4-6b1e26456c15}</destination>
-			<destination>{6493b332-d6f7-4954-b644-e63cbd8b10b5}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{ad419d1b-ad50-4fe9-8128-06d46af3c5e0}" />
@@ -132,6 +134,5 @@
 	</object>
 	<object class="MixerBusPanner" id="{11738350-0e8c-49df-8ff3-48f4d5af534b}" />
 	<object class="MixerBusFader" id="{0b81b697-9990-462e-91a4-6b1e26456c15}" />
-	<object class="SpatialiserEffect" id="{6493b332-d6f7-4954-b644-e63cbd8b10b5}" />
 	<object class="MixerBusFader" id="{409ee987-54b1-4613-b76e-730b5ceed6f9}" />
 </objects>

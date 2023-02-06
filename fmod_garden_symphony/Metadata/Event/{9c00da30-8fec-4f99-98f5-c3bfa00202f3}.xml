@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="Event" id="{9c00da30-8fec-4f99-98f5-c3bfa00202f3}">
 		<property name="name">
-			<value>Music-Config-Final</value>
+			<value>MusicFinal</value>
 		</property>
 		<property name="outputFormat">
 			<value>1</value>
@@ -34,6 +34,9 @@
 		</relationship>
 		<relationship name="parameters">
 			<destination>{d33f310a-1cae-4042-9711-7b3a49c6e27f}</destination>
+		</relationship>
+		<relationship name="banks">
+			<destination>{0ba2e1fa-ed17-4469-9e22-201e829afdb3}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixer" id="{15dbe529-a67b-4c6f-a6cd-766238b81c4a}">
@@ -211,6 +214,9 @@
 		</relationship>
 		<relationship name="markerTrack">
 			<destination>{d2f6a4b5-9b06-41c1-8ad0-2112c6bc8df1}</destination>
+		</relationship>
+		<relationship name="triggerConditions">
+			<destination>{2510809a-af9d-477d-9325-8787d499b0d9}</destination>
 		</relationship>
 	</object>
 	<object class="LoopRegion" id="{b119b19d-8693-43a8-8f16-21d656b2f881}">
@@ -515,6 +521,17 @@
 	</object>
 	<object class="MixerBusPanner" id="{20ca8347-4576-4820-8d80-7ebe22d7d56d}" />
 	<object class="MixerBusFader" id="{12a5151e-a644-47c1-8e44-1cb14b8951a2}" />
+	<object class="ParameterCondition" id="{2510809a-af9d-477d-9325-8787d499b0d9}">
+		<property name="minimum">
+			<value>1</value>
+		</property>
+		<property name="maximum">
+			<value>1</value>
+		</property>
+		<relationship name="parameter">
+			<destination>{d1969856-315a-45d1-b989-de4607d04ab2}</destination>
+		</relationship>
+	</object>
 	<object class="ParameterCondition" id="{04221cb7-1fb9-4a15-8fad-f2724bbdde7d}">
 		<property name="minimum">
 			<value>1</value>

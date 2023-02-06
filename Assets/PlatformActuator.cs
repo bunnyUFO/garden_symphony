@@ -30,38 +30,16 @@ public class PlatformActuator : MonoBehaviour
         {
             foreach (var beatEventListener in listeners)
             {
+                beatEventListener.ignore = true;
                 beatEventListener.enabled = false;
-            }
-            foreach (var tiling in tilings)
-            {
-                tiling.enabled = false;
-            }
-            foreach (var smoother in smoothers)
-            {
-                smoother.enabled = false;
-            }
-            foreach (var root in roots)
-            {
-                root.enabled = false;
             }
         }
         else
         {
             foreach (var beatEventListener in listeners)
             {
+                beatEventListener.ignore = false;
                 beatEventListener.enabled = true;
-            }
-            foreach (var tiling in tilings)
-            {
-                tiling.enabled = true;
-            }
-            foreach (var smoother in smoothers)
-            {
-                smoother.enabled = true;
-            }
-            foreach (var root in roots)
-            {
-                root.enabled = true;
             }
         }
     }
