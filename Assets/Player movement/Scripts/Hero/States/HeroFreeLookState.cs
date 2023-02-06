@@ -20,7 +20,6 @@ public class HeroFreeLookState : HeroBaseState
         stateMachine.InputReader.DashEvent += OnDash;
 
         stateMachine.AbilityTracker.Reset();
-        stateMachine.Animator.SetFloat(FreeLookSpeedHash, 0f);
 
         stateMachine.Animator.SetFloat(FreeLookSpeedHash, 0f);
         stateMachine.Animator.CrossFadeInFixedTime(FreeLookBlendTreeHash, CrossFadeDuration);

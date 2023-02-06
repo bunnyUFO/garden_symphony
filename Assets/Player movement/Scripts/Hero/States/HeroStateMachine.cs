@@ -29,6 +29,7 @@ public class HeroStateMachine : StateMachine
     [field: SerializeField] public ForceReceiver ForceReceiver { get; private set; }
     [field: SerializeField] public AbilityTracker AbilityTracker { get; private set; }
     [field: SerializeField] public Respawner Respawner { get; private set; }
+    [field: SerializeField] public Ragdoll Ragdoll { get; private set; }
     [field: SerializeField] public bool Grounded { get; private set; }
     [field: SerializeField] public bool OnPlatform { get; private set; }
 

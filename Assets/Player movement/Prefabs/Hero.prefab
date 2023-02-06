@@ -4953,6 +4953,7 @@ GameObject:
   - component: {fileID: -3655052954052244331}
   - component: {fileID: 7544101943027469691}
   - component: {fileID: 3931564991085933839}
+  - component: {fileID: 7411493277780588568}
   - component: {fileID: 3688722803409119757}
   m_Layer: 0
   m_Name: Hero
@@ -5104,6 +5105,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadeTime: 1
+--- !u!114 &7411493277780588568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3688722803409119756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8d8adbff71dbb74caaee09d3a32a0a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 3688722803409119862}
+  controller: {fileID: 3688722803409119752}
 --- !u!114 &3688722803409119757
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5136,6 +5151,7 @@ MonoBehaviour:
   <ForceReceiver>k__BackingField: {fileID: 3688722803409119863}
   <AbilityTracker>k__BackingField: {fileID: 6471091708529980615}
   <Respawner>k__BackingField: {fileID: 3931564991085933839}
+  <Ragdoll>k__BackingField: {fileID: 7411493277780588568}
   <Grounded>k__BackingField: 0
   <OnPlatform>k__BackingField: 0
 --- !u!1 &3688722804612257698

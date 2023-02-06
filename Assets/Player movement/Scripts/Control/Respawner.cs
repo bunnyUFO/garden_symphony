@@ -32,9 +32,11 @@ public class Respawner : MonoBehaviour
         stateMachine.Controller.enabled = false;
         gameObject.transform.position = spawnPosition;
         gameObject.transform.eulerAngles = spawnRotation;
-        stateMachine.Controller.enabled = true;
-        yield return fader.FadeIn(fadeTime);
         stateMachine.SwitchState(new HeroFreeLookState(stateMachine));
+        yield return new WaitForSeconds(fadeTime);
+        yield return fader.FadeIn(fadeTime);
+        stateMachine.Controller.enabled = true;
+        
     }
 
     private void OnTriggerEnter(Collider other)
