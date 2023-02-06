@@ -33,5 +33,15 @@ namespace RythmFramework
                 OnPlatform(onPlatform, velocity);
             }
         }
+        
+        public event Action<Vector3> OnBounce;
+        
+        public void BounceUpdate(Vector3 velocity)
+        {
+            if (OnBounce != null)
+            {
+                OnBounce(velocity);
+            }
+        }
     }
 }

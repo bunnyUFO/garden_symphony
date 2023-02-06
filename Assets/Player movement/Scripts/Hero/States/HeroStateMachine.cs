@@ -48,6 +48,7 @@ public class HeroStateMachine : StateMachine
         SwitchState(new HeroFreeLookState(this));
         GroundedEvents.current.OnGrounded += OnGrounded;
         GroundedEvents.current.OnPlatform += PlatformUpdate;
+        GroundedEvents.current.OnBounce += BounceUpdate;
     }
 
     private void OnGrounded(bool isGrounded)
@@ -58,6 +59,11 @@ public class HeroStateMachine : StateMachine
     private void PlatformUpdate(bool onPlatform, Vector3 velocity)
     {
         OnPlatform = onPlatform;
+        PlatformVelocity = velocity;
+    }
+    
+    private void BounceUpdate(Vector3 velocity)
+    {
         PlatformVelocity = velocity;
     }
 }

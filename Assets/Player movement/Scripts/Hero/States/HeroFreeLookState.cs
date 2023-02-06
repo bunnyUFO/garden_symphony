@@ -81,4 +81,9 @@ public class HeroFreeLookState : HeroBaseState
             stateMachine.SwitchState(new HeroDashingState(stateMachine, Vector2.up));
         }
     }
+    
+    private void OnBounce()
+    {
+        stateMachine.SwitchState(new HeroJumpingState(stateMachine));
+    }
 }
