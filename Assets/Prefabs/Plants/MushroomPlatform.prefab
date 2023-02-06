@@ -358,7 +358,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc94537448f2e549b4b00052c4625e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  launchStrength: 15
+  bounceOnBeat: 0
+  launchStrength: 30
 --- !u!1 &5477391238455171071
 GameObject:
   m_ObjectHideFlags: 0
