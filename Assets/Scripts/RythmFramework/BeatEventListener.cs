@@ -23,6 +23,19 @@ namespace RythmFramework
             if(beatCounts.Count > 0) BeatEvents.current.OnBeat += OnBeat;
             if(markers.Count > 0) BeatEvents.current.OnBeatMarker += OnMarker;
         }
+        
+        private void OnEnable()
+        {
+            if(beatCounts.Count > 0) BeatEvents.current.OnBeat += OnBeat;
+            if(markers.Count > 0) BeatEvents.current.OnBeatMarker += OnMarker;
+        }
+        
+        
+        private void OnDisable()
+        {
+            if(beatCounts.Count > 0) BeatEvents.current.OnBeat -= OnBeat;
+            if(markers.Count > 0) BeatEvents.current.OnBeatMarker -= OnMarker;
+        }
 
         public void OnBeat()
         {
