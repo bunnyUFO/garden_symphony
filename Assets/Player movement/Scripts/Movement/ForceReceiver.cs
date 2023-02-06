@@ -9,6 +9,7 @@ public class ForceReceiver : MonoBehaviour
 
     private Vector3 dampingVelocity;
     private Vector3 impact;
+    private Vector3 bounceVelocity;
     private float verticalVelocity;
 
 
@@ -40,6 +41,11 @@ public class ForceReceiver : MonoBehaviour
         {
             verticalVelocity = jumpForce;
         }
+    }
+    
+    public void Bounce(Vector3 velocity)
+    {
+        bounceVelocity = velocity;
     }
 
     public void Reset()
