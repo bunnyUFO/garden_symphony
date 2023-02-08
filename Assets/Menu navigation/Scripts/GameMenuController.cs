@@ -41,8 +41,11 @@ public class GameMenuController : MonoBehaviour
         isPaused = true;
         Time.timeScale = 0;
 
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
         //Enable menus
-        //gameHud.SetActive(false);
+        gameHud.SetActive(false);
         pauseMenu.SetActive(true);
     }
 
@@ -52,8 +55,11 @@ public class GameMenuController : MonoBehaviour
         isPaused = false;
         Time.timeScale = 1;
 
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
         //Disable menus
-        //gameHud.SetActive(true);
+        gameHud.SetActive(true);
         pauseMenu.SetActive(false);
     }
 
