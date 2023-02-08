@@ -21,7 +21,7 @@ public class MushroomBouncer : MonoBehaviour
     private void BounceHero(HeroStateMachine hero)
     {
         Vector3 launchForce = transform.forward * launchStrength;
-        hero.SwitchState(new HeroJumpingState(hero));
+        hero.SwitchState(new HeroJumpingState(hero, false, true));
         hero.ForceReceiver.AddForce(launchForce);
     }
 
