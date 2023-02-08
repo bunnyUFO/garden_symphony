@@ -20,7 +20,7 @@ public class HeroRespawningState : HeroBaseState
         stateMachine.Animator.SetFloat(FreeLookSpeedHash, 0f);
         //stateMachine.Animator.CrossFadeInFixedTime(FreeLookBlendTreeHash, CrossFadeDuration);
 
-        stateMachine.Ragdoll.ToggleRagdoll(true);
+        stateMachine.Ragdoll.EnableRagdollWithPhysics(stateMachine.Controller.velocity);
     }
 
     public override void Tick(float deltaTime) 

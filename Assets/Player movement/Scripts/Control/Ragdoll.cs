@@ -9,6 +9,7 @@ public class Ragdoll : MonoBehaviour
 
     private Collider[] allColliders;
     private Rigidbody[] allRigidbodies;
+    private const float momentumMultiplier = 5f;
 
     private void Start()
     {
@@ -35,5 +36,26 @@ public class Ragdoll : MonoBehaviour
 
         controller.enabled = !isRagdoll;
         animator.enabled = !isRagdoll;
+    }
+
+    public void EnableRagdollWithPhysics(Vector3 momentum)
+    {
+        foreach(Collider collider in allColliders) {
+            if (collider.gameObject.CompareTag("Ragdoll")) {
+                collider.enabled = true;
+            }
+        }
+
+        foreach(Rigidbody rigidbody in allRigidbodies) {
+            if (rigidbody.gameObject.CompareTag("Ragdoll")) {
+                rigidbody.isKinematic = false;
+                rigidbody.useGravity = true;
+
+                rigidbody.velocity = momentum + Random.insideUnitSphere * momentumMultiplier;
+            }
+        }
+
+        controller.enabled = false;
+        animator.enabled = false;
     }
 }

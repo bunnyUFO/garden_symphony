@@ -13,6 +13,8 @@ public abstract class HeroBaseState : State
     
     protected void Move(Vector3 motion, float deltaTime, bool onPlatform = false, bool resetVerticalSpeed = false)
     {
+        if (! stateMachine.Controller.enabled) return;
+        
         Vector3 verticalVelocity = onPlatform ? Vector3.down*2 : stateMachine.ForceReceiver.Movement;
         if(resetVerticalSpeed) verticalVelocity = Vector3.zero;
         stateMachine.Controller.Move((motion + verticalVelocity + stateMachine.PlatformVelocity) * deltaTime);
