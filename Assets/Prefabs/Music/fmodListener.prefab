@@ -13,8 +13,9 @@ GameObject:
   - component: {fileID: 1265826187606155959}
   - component: {fileID: 1265826187606155958}
   - component: {fileID: 6252117725639691784}
+  - component: {fileID: 660232628}
   m_Layer: 0
-  m_Name: fmod
+  m_Name: fmodListener
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27,7 +28,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1265826187606155956}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.40270996, y: 1.2228699, z: 0.4427185}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -67,11 +68,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventReference:
     Guid:
-      Data1: -1857934400
-      Data2: 1318913250
-      Data3: -864364404
-      Data4: -1266679687
-    Path: event:/Music
+      Data1: -1677665744
+      Data2: 1335463916
+      Data3: -1077676648
+      Data4: -217972064
+    Path: event:/MusicFinal
 --- !u!114 &1265826187606155958
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -96,3 +97,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca704574fad21904d9ecb1b174f8626d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &660232628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1265826187606155956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d80cc6f00b667154598dca74af45d7f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scriptableObject: {fileID: 11400000, guid: b8e740532a4a2604fa169d96cbfba023, type: 2}

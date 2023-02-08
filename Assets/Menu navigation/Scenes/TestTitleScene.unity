@@ -238,24 +238,6 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
---- !u!1 &660232622 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1265826187606155956, guid: 32d4ee41606dea3469fe08080af6a0d0, type: 3}
-  m_PrefabInstance: {fileID: 1756934714}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &660232628
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 660232622}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d80cc6f00b667154598dca74af45d7f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scriptableObject: {fileID: 11400000, guid: b8e740532a4a2604fa169d96cbfba023, type: 2}
 --- !u!1 &1595347196
 GameObject:
   m_ObjectHideFlags: 0
@@ -517,26 +499,6 @@ PrefabInstance:
     - target: {fileID: 1265826187606155957, guid: 32d4ee41606dea3469fe08080af6a0d0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1265826187606155959, guid: 32d4ee41606dea3469fe08080af6a0d0, type: 3}
-      propertyPath: eventReference.Path
-      value: event:/MusicFinal
-      objectReference: {fileID: 0}
-    - target: {fileID: 1265826187606155959, guid: 32d4ee41606dea3469fe08080af6a0d0, type: 3}
-      propertyPath: eventReference.Guid.Data1
-      value: -1677665744
-      objectReference: {fileID: 0}
-    - target: {fileID: 1265826187606155959, guid: 32d4ee41606dea3469fe08080af6a0d0, type: 3}
-      propertyPath: eventReference.Guid.Data2
-      value: 1335463916
-      objectReference: {fileID: 0}
-    - target: {fileID: 1265826187606155959, guid: 32d4ee41606dea3469fe08080af6a0d0, type: 3}
-      propertyPath: eventReference.Guid.Data3
-      value: -1077676648
-      objectReference: {fileID: 0}
-    - target: {fileID: 1265826187606155959, guid: 32d4ee41606dea3469fe08080af6a0d0, type: 3}
-      propertyPath: eventReference.Guid.Data4
-      value: -217972064
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 32d4ee41606dea3469fe08080af6a0d0, type: 3}

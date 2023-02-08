@@ -81,10 +81,11 @@ MonoBehaviour:
   - {x: 2.72, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
   - {x: -4.22, y: 0, z: 0}
-  duration: 3
+  duration: 1
   currentPosition: 0
   debug: 1
   debugRadius: 1
+  easeType: 1
 --- !u!114 &8225957496978866827
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,7 +163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9843c4c1f28a98d4ba2326186712c580, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enableDistance: 35
+  enableDistance: 80
 --- !u!1 &2771379793862374614
 GameObject:
   m_ObjectHideFlags: 0
@@ -403,10 +404,11 @@ MonoBehaviour:
   - {x: 2.72, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
   - {x: -4.22, y: 0, z: 0}
-  duration: 3
+  duration: 1
   currentPosition: 0
   debug: 1
   debugRadius: 1
+  easeType: 1
 --- !u!114 &7987144491714793877
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -489,10 +491,11 @@ MonoBehaviour:
   - {x: 2.72, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
   - {x: -4.22, y: 0, z: 0}
-  duration: 3
+  duration: 1
   currentPosition: 0
   debug: 1
   debugRadius: 1
+  easeType: 1
 --- !u!114 &2239269645320385905
 MonoBehaviour:
   m_ObjectHideFlags: 0

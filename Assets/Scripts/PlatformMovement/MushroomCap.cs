@@ -9,9 +9,8 @@ namespace DefaultNamespace
     public class MushroomCap : MonoBehaviour
     {
         public List<Quaternion> rotations = new List<Quaternion>();
-        public float bounceCheckRadius = 2;
-        public float bounceSpeed = 10;
-        public Vector3 bounceCheckOffset;
+        public Ease rotationEase;
+        public Ease expandEase;
         private int currentRotation = 0;
         private SkinnedMeshRenderer renderer;
         private MeshCollider meshCollider;
@@ -34,32 +33,19 @@ namespace DefaultNamespace
         public void NextRotation(float duration)
         {
             currentRotation = (currentRotation + 1) % rotations.Count;
-            transform.DOLocalRotateQuaternion(rotations[currentRotation], duration).SetEase(Ease.InOutElastic);
+            transform.DOLocalRotateQuaternion(rotations[currentRotation], duration).SetEase(rotationEase);
         }
         
         public void Expand(float duration)
         {
-            float blend = expanded ? 100 : 10;
-            DOTween.To(() => blend, x => blend = x, blend, duration).SetEase(Ease.InOutElastic) .OnUpdate(() => {
+            float blend = renderer.GetBlendShapeWeight(0);
+            float newBlend = expanded ? 100 : 0;
+            DOTween.To(() => blend, x => blend = x, newBlend, duration).SetEase(expandEase).OnUpdate(() => {
                 renderer.SetBlendShapeWeight(0, blend);
-                
-                if (!expanded && !sentBounceEvent && blend < 30 && Physics.CheckSphere(transform.position + bounceCheckOffset, bounceCheckRadius))
-                {
-                    sentBounceEvent = true;
-                    GroundedEvents.current.BounceUpdate(transform.up * bounceSpeed);
-                }
-                
             }).OnComplete(() =>
             {
-                sentBounceEvent = false;
                 expanded = !expanded;
             });
-        }
-
-        private void OnDrawGizmos()
-        {
-            Gizmos.color = Color.red;
-            Gizmos.DrawWireSphere(transform.position + bounceCheckOffset, bounceCheckRadius);
         }
     }
 }

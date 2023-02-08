@@ -13,6 +13,7 @@ namespace PlatformMovement
         public int currentPosition = 0;
         public bool debug;
         public float debugRadius;
+        public Ease easeType;
         private Vector3 _initialPosition;
         
         private LateExecute _lateExecute;
@@ -26,7 +27,7 @@ namespace PlatformMovement
         public void TweenNext()
         {
             currentPosition = (currentPosition + 1) % positions.Count;
-            transform.DOMove(_initialPosition + positions[currentPosition], duration);
+            transform.DOMove(_initialPosition + positions[currentPosition], duration).SetEase(easeType);
         }
         
         public void TweenNext(float delay)

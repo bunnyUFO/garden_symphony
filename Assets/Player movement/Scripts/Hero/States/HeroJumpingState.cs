@@ -14,7 +14,7 @@ public class HeroJumpingState : HeroBaseState
     private float runningJumpSpeed = 0.2f;
 
 
-    public HeroJumpingState(HeroStateMachine stateMachine, bool transferMomentum = true) : base(stateMachine) 
+    public HeroJumpingState(HeroStateMachine stateMachine, bool transferMomentum = false) : base(stateMachine) 
     {
         this.transferMomentum = transferMomentum;
     }

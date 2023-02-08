@@ -24,13 +24,13 @@ namespace RythmFramework
             }
         }
         
-        public event Action<bool, Vector3> OnPlatform;
+        public event Action<bool, Vector3, Vector3> OnPlatform;
 
-        public void PlatformUpdate(bool onPlatform, Vector3 velocity)
+        public void PlatformUpdate(bool onPlatform, Vector3 velocity, Vector3 displacement)
         {
             if (OnPlatform != null)
             {
-                OnPlatform(onPlatform, velocity);
+                OnPlatform(onPlatform, velocity, displacement);
             }
         }
         
@@ -41,6 +41,16 @@ namespace RythmFramework
             if (OnBounce != null)
             {
                 OnBounce(velocity);
+            }
+        }
+        
+        public event Action<bool> OnLedge;
+
+        public void LedgeUpdate(bool ledge)
+        {
+            if (OnLedge != null)
+            {
+                OnLedge(ledge);
             }
         }
     }

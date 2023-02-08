@@ -34,8 +34,12 @@ public class HeroFreeLookState : HeroBaseState
         }
 
         Vector3 movement = CalculateMovement();
+        
+        //prevent from walking off ledge
+        if(stateMachine.OnLedge && stateMachine.Grounded &&  Vector3.Dot( stateMachine.transform.forward, movement) > 0) movement = Vector3.zero;
 
-        Move(movement * stateMachine.FreeLookMovementSpeed, deltaTime, stateMachine.OnPlatform);
+        bool resetVerticalSpeed = stateMachine.OnPlatform && stateMachine.PlatformYOffset < 0.03 && stateMachine.PlatformYOffset > 0;
+        Move(movement * stateMachine.FreeLookMovementSpeed, deltaTime, stateMachine.OnPlatform, resetVerticalSpeed);
 
         if (stateMachine.InputReader.MovementValue == Vector2.zero) {
             stateMachine.Animator.SetFloat(FreeLookSpeedHash, 0, AnimatorDampTime, deltaTime);
@@ -70,7 +74,7 @@ public class HeroFreeLookState : HeroBaseState
         // decided to not allow jumps if moving fast
         if (stateMachine.PlatformVelocity.magnitude < 10)
         {
-            stateMachine.SwitchState(new HeroJumpingState(stateMachine));   
+            stateMachine.SwitchState(new HeroJumpingState(stateMachine, true));   
         }
     }
 
@@ -83,6 +87,6 @@ public class HeroFreeLookState : HeroBaseState
     
     private void OnBounce()
     {
-        stateMachine.SwitchState(new HeroJumpingState(stateMachine));
+        stateMachine.SwitchState(new HeroJumpingState(stateMachine, true));
     }
 }
