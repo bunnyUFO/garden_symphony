@@ -76,6 +76,19 @@ public class SoundManager : SingletonScriptableObject<SoundManager>
         return sound;
     }
     
+    public FMOD.Studio.EventInstance PlaySound(string path, float v = 1)
+    {
+        float volume = v * sfxVolume;
+        FMOD.Studio.EventInstance sound = RuntimeManager.CreateInstance(path);
+        if (volume > 0.05f)
+        {
+            sound.setVolume(volume);
+            sound.start();
+            sound.release();
+        }
+        return sound;
+    }
+    
     public FMOD.Studio.EventInstance PLayMusic(float v = 1)
     {
         FMOD.Studio.PLAYBACK_STATE state;

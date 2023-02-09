@@ -21,115 +21,23 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes:
-    - Name: sounds
+    - Name: categories
       Entry: 7
-      Data: 0|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[System.Collections.Generic.Dictionary`2[[System.String,
-        mscorlib],[FMODUnity.EventReference, FMODUnity]], mscorlib]], mscorlib
-    - Name: comparer
-      Entry: 7
-      Data: 1|System.Collections.Generic.GenericEqualityComparer`1[[System.String,
-        mscorlib]], mscorlib
-    - Name: 
-      Entry: 8
-      Data: 
+      Data: 0|System.Collections.Generic.List`1[[SoundManager+Category, Assembly-CSharp]],
+        mscorlib
     - Name: 
       Entry: 12
-      Data: 1
+      Data: 6
     - Name: 
       Entry: 7
-      Data: 
-    - Name: $k
+      Data: SoundManager+Category, Assembly-CSharp
+    - Name: category
       Entry: 1
-      Data: Wrenford
-    - Name: $v
-      Entry: 7
-      Data: 2|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[FMODUnity.EventReference,
-        FMODUnity]], mscorlib
-    - Name: comparer
-      Entry: 9
-      Data: 1
-    - Name: 
-      Entry: 12
-      Data: 4
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
+      Data: UI
+    - Name: soundName
       Entry: 1
-      Data: Jump
-    - Name: $v
-      Entry: 7
-      Data: FMODUnity.EventReference, FMODUnity
-    - Name: Guid
-      Entry: 7
-      Data: FMOD.GUID, FMODUnity
-    - Name: Data1
-      Entry: 3
-      Data: -857535351
-    - Name: Data2
-      Entry: 3
-      Data: 1282224849
-    - Name: Data3
-      Entry: 3
-      Data: -938806088
-    - Name: Data4
-      Entry: 3
-      Data: -230796714
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Path
-      Entry: 1
-      Data: event:/SFX/Jump
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: DoubleJump
-    - Name: $v
-      Entry: 7
-      Data: FMODUnity.EventReference, FMODUnity
-    - Name: Guid
-      Entry: 7
-      Data: FMOD.GUID, FMODUnity
-    - Name: Data1
-      Entry: 3
-      Data: -2001864515
-    - Name: Data2
-      Entry: 3
-      Data: 1185840474
-    - Name: Data3
-      Entry: 3
-      Data: -1910057066
-    - Name: Data4
-      Entry: 3
-      Data: 50416889
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Path
-      Entry: 1
-      Data: event:/SFX/DoubleJump
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Dash
-    - Name: $v
+      Data: Select
+    - Name: sound
       Entry: 7
       Data: FMODUnity.EventReference, FMODUnity
     - Name: Guid
@@ -161,11 +69,92 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
+      Data: SoundManager+Category, Assembly-CSharp
+    - Name: category
+      Entry: 1
+      Data: UI
+    - Name: soundName
+      Entry: 1
+      Data: Confirm
+    - Name: sound
+      Entry: 7
+      Data: FMODUnity.EventReference, FMODUnity
+    - Name: Guid
+      Entry: 7
+      Data: FMOD.GUID, FMODUnity
+    - Name: Data1
+      Entry: 3
+      Data: -857535351
+    - Name: Data2
+      Entry: 3
+      Data: 1282224849
+    - Name: Data3
+      Entry: 3
+      Data: -938806088
+    - Name: Data4
+      Entry: 3
+      Data: -230796714
+    - Name: 
+      Entry: 8
       Data: 
-    - Name: $k
+    - Name: Path
+      Entry: 1
+      Data: event:/SFX/Jump
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: SoundManager+Category, Assembly-CSharp
+    - Name: category
+      Entry: 1
+      Data: Wrenford
+    - Name: soundName
+      Entry: 1
+      Data: Dash
+    - Name: sound
+      Entry: 7
+      Data: FMODUnity.EventReference, FMODUnity
+    - Name: Guid
+      Entry: 7
+      Data: FMOD.GUID, FMODUnity
+    - Name: Data1
+      Entry: 3
+      Data: 1074117855
+    - Name: Data2
+      Entry: 3
+      Data: 1082202835
+    - Name: Data3
+      Entry: 3
+      Data: -1103262804
+    - Name: Data4
+      Entry: 3
+      Data: -1286081538
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Path
+      Entry: 1
+      Data: event:/SFX/Dash
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: SoundManager+Category, Assembly-CSharp
+    - Name: category
+      Entry: 1
+      Data: Wrenford
+    - Name: soundName
       Entry: 1
       Data: Hover
-    - Name: $v
+    - Name: sound
       Entry: 7
       Data: FMODUnity.EventReference, FMODUnity
     - Name: Guid
@@ -196,8 +185,77 @@ MonoBehaviour:
       Entry: 8
       Data: 
     - Name: 
-      Entry: 13
+      Entry: 7
+      Data: SoundManager+Category, Assembly-CSharp
+    - Name: category
+      Entry: 1
+      Data: Wrenford
+    - Name: soundName
+      Entry: 1
+      Data: Jump
+    - Name: sound
+      Entry: 7
+      Data: FMODUnity.EventReference, FMODUnity
+    - Name: Guid
+      Entry: 7
+      Data: FMOD.GUID, FMODUnity
+    - Name: Data1
+      Entry: 3
+      Data: -857535351
+    - Name: Data2
+      Entry: 3
+      Data: 1282224849
+    - Name: Data3
+      Entry: 3
+      Data: -938806088
+    - Name: Data4
+      Entry: 3
+      Data: -230796714
+    - Name: 
+      Entry: 8
       Data: 
+    - Name: Path
+      Entry: 1
+      Data: event:/SFX/Jump
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: SoundManager+Category, Assembly-CSharp
+    - Name: category
+      Entry: 1
+      Data: Wrenford
+    - Name: soundName
+      Entry: 1
+      Data: DoubleJump
+    - Name: sound
+      Entry: 7
+      Data: FMODUnity.EventReference, FMODUnity
+    - Name: Guid
+      Entry: 7
+      Data: FMOD.GUID, FMODUnity
+    - Name: Data1
+      Entry: 3
+      Data: -2001864515
+    - Name: Data2
+      Entry: 3
+      Data: 1185840474
+    - Name: Data3
+      Entry: 3
+      Data: -1910057066
+    - Name: Data4
+      Entry: 3
+      Data: 50416889
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Path
+      Entry: 1
+      Data: event:/SFX/DoubleJump
     - Name: 
       Entry: 8
       Data: 
@@ -210,7 +268,7 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-  sfxVolume: 0.5
+  sfxVolume: 0.4999999
   musicVolume: 0.5
   music:
     Guid:
@@ -219,12 +277,3 @@ MonoBehaviour:
       Data3: -1077676648
       Data4: -217972064
     Path: event:/MusicFinal
-  category: Wrenford
-  soundName: Hover
-  fmodEvent:
-    Guid:
-      Data1: 1631476691
-      Data2: 1186923405
-      Data3: 1611646117
-      Data4: -1824816674
-    Path: event:/SFX/Hover

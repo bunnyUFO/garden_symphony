@@ -26,8 +26,8 @@ public class HeroDashingState : HeroBaseState
         stateMachine.Animator.CrossFadeInFixedTime(DashingHash, CrossFadeDuration);
 
         //WebGL does not like serialized objects
-        //SoundManager.Instance.PlaySound("Wrenford", "Dash", 5f);
-        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Dash");
+        // SoundManager.Instance.PlaySound("Wrenford", "Dash", 5f);
+        SoundManager.Instance.PlaySound("event:/SFX/Dash", 4f);
 
         stateMachine.SpeedRayParticles.Play();
     }

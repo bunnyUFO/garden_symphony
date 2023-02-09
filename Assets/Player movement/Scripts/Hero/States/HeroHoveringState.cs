@@ -21,8 +21,8 @@ public class HeroHoveringState : HeroBaseState
         stateMachine.Animator.CrossFadeInFixedTime(HoveringHash, CrossFadeDuration);
 
         // WebGL does not like serialized objects
-        // SoundManager.Instance.PlaySound("Wrenford", "Hover");
-        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Hover");
+        // SoundManager.Instance.PlaySound("Wrenford", "Hover", 4f);
+        SoundManager.Instance.PlaySound("event:/SFX/Hover", 4f);
 
         stateMachine.FeatherDropParticles.Play();
     }

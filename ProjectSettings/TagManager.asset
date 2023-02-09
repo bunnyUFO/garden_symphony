@@ -7,6 +7,8 @@ TagManager:
   - RaycastDown
   - Platform
   - Ragdoll
+  - sfxSlider
+  - musicSlider
   layers:
   - Default
   - TransparentFX

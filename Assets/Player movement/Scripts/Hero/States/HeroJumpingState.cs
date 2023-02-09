@@ -38,19 +38,20 @@ public class HeroJumpingState : HeroBaseState
         if (!stateMachine.Grounded)
         {
             //WebGL does not like serialized objects
-            // SoundManager.Instance.PlaySound("Wrenford", "DoubleJump", 5f);
-            FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/DoubleJump");
+            // SoundManager.Instance.PlaySound("Wrenford", "DoubleJump", 4f);
+            SoundManager.Instance.PlaySound("event:/SFX/DoubleJump", 4f);
 
             stateMachine.DustRingParticles.Play();
             stateMachine.Animator.CrossFadeInFixedTime(DoubleJumpHash, CrossFadeDuration);    
         } else if (stateMachine.Controller.velocity.magnitude >= runningJumpSpeed) {
-            // SoundManager.Instance.PlaySound("Wrenford", "Jump", 5f);
-            FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Jump");
+            // SoundManager.Instance.PlaySound("Wrenford", "Jump", 4f);
+            SoundManager.Instance.PlaySound("event:/SFX/Jump", 4f);
 
             stateMachine.Animator.CrossFadeInFixedTime(RunningJumpHash, CrossFadeDuration);    
-        } else {
-            // SoundManager.Instance.PlaySound("Wrenford", "Jump", 5f);
-            FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Jump");
+        } else
+        {
+            // SoundManager.Instance.PlaySound("Wrenford", "Jump", 4f);
+            SoundManager.Instance.PlaySound("event:/SFX/Jump", 4f);
 
             stateMachine.Animator.CrossFadeInFixedTime(JumpingHash, CrossFadeDuration);
         }
