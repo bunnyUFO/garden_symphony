@@ -9,6 +9,7 @@ TagManager:
   - Ragdoll
   - sfxSlider
   - musicSlider
+  - Checkpoint
   layers:
   - Default
   - TransparentFX

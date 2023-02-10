@@ -11,6 +11,7 @@ public class Respawner : MonoBehaviour
 
     Fader fader;
     HeroStateMachine stateMachine;
+    Checkpoint currentCheckpoint;
 
 
     private void Awake()
@@ -43,7 +44,15 @@ public class Respawner : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.TryGetComponent(out Checkpoint checkpoint)) {
-            //Debug.Log($"Checkpoint!");
+            if (currentCheckpoint == checkpoint) return;
+            
+            if (currentCheckpoint != null) {
+                currentCheckpoint.EnableVisual(false);
+            }
+
+            checkpoint.EnableVisual(true);
+            currentCheckpoint = checkpoint;
+
             spawnPosition = checkpoint.SpawnPoint.position;
             spawnRotation = checkpoint.SpawnPoint.eulerAngles;
         } else if (other.gameObject.CompareTag("Respawn")) {
