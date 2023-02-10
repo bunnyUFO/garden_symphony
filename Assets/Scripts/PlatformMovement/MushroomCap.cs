@@ -23,13 +23,6 @@ namespace DefaultNamespace
             meshCollider = GetComponent<MeshCollider>();
         }
 
-        private void FixedUpdate()
-        {
-            Mesh bakeMesh = new Mesh();
-            renderer.BakeMesh(bakeMesh);
-            meshCollider.sharedMesh = bakeMesh;
-        }
-
         public void NextRotation(float duration)
         {
             currentRotation = (currentRotation + 1) % rotations.Count;
