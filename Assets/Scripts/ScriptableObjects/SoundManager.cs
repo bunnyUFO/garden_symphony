@@ -1,4 +1,3 @@
-using Sirenix.OdinInspector;
 using System.Collections.Generic;
 using FMODUnity;
 using UnityEngine;
@@ -10,55 +9,19 @@ public class SoundManager : SingletonScriptableObject<SoundManager>
 {
     #region Serialized Fields
 
-    [Title("Volume Settings")]
     [SerializeField, Range(0f,1f)]
     public float sfxVolume;
     [SerializeField,Range(0f,1f)]
-    [OnValueChanged("UpdateMusicVolume")]
     public float musicVolume;
     
-    [Title("Music Track")]
     public EventReference music;
     
-    [Title("Sounds By Category")] 
-    [DictionaryDrawerSettings(DisplayMode = DictionaryDisplayOptions.OneLine)]
     public  Dictionary<string, Dictionary<string, EventReference>> sounds;
     
-    [TitleGroup("Add New Sound")]
-    [HorizontalGroup("Add New Sound/labels", 0.5f, LabelWidth = 20)]
-    [TitleGroup("Add New Sound/labels/Category")]
-    
-    [HideLabel]
-    public string category;
-
-    [TitleGroup("Add New Sound/labels/Name")]
-    [HideLabel]
-    public string soundName;
-    
-    [TitleGroup("Add New Sound")]
-    [SerializeField]
-    public EventReference fmodEvent;
-
     #endregion
     
     #region Inspector Actions
-    
-    [TitleGroup("Add New Sound")]
-    [Button("Submit")]
-    private void NamedButton()
-    {
-        if (sounds == null) sounds = new Dictionary<string, Dictionary<string, EventReference>>();
-        if (!sounds.ContainsKey(category)) sounds.Add(category, new Dictionary<string, EventReference>());
-        if (sounds[category].ContainsKey(soundName))
-        {
-            sounds[category][soundName] = fmodEvent;
-        }
-        else
-        {
-            sounds[category].Add(soundName, fmodEvent);
-        }
-    }
-    
+
     #endregion
 
     private FMOD.Studio.EventInstance _musicEvent;
@@ -89,7 +52,7 @@ public class SoundManager : SingletonScriptableObject<SoundManager>
         return sound;
     }
     
-    public FMOD.Studio.EventInstance PLayMusic(float v = 1)
+    public FMOD.Studio.EventInstance PLayMusic(float v = 0.5f)
     {
         FMOD.Studio.PLAYBACK_STATE state;
         _musicEvent.getPlaybackState(out state);
