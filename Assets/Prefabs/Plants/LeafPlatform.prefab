@@ -523,7 +523,7 @@ MonoBehaviour:
   - position: {x: 0, y: 3.85, z: 0}
     direction: {x: 0, y: 5.25, z: 0}
     up: {x: 0, y: 1, z: 0}
-    scale: {x: 0.8848935, y: 0.8848935}
+    scale: {x: 0.56687504, y: 0.56687504}
     roll: 1
   - position: {x: 0, y: 8, z: 0}
     direction: {x: 0, y: 8.72625, z: 0}
@@ -812,7 +812,7 @@ MonoBehaviour:
   currentPosition: 0
   debug: 1
   debugRadius: 0.5
-  easeType: 8
+  easeType: 10
 --- !u!114 &1418774103051242477
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -931,7 +931,7 @@ MonoBehaviour:
   currentPosition: 0
   debug: 1
   debugRadius: 0.5
-  easeType: 8
+  easeType: 10
 --- !u!114 &8699493233385221048
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -70,8 +70,7 @@ public class HeroFreeLookState : HeroBaseState
 
     private void OnJump()
     {
-        // Jumping while moving fast on platforms causes issues
-        // decided to not allow jumps if moving fast
+        // Disable jumping while moving fast on platforms because it causes issues
         if (stateMachine.PlatformVelocity.magnitude < 10)
         {
             stateMachine.SwitchState(new HeroJumpingState(stateMachine, true));   

@@ -35,6 +35,7 @@ public class HeroDashingState : HeroBaseState
     public override void Tick(float deltaTime) 
     {
         Vector3 movement = new Vector3();
+        stateMachine.ForceReceiver.Reset();
 
         movement += stateMachine.transform.right * dashDirectionInput.x * stateMachine.DashDistance / stateMachine.DashDuration;
         movement += stateMachine.transform.forward * dashDirectionInput.y * stateMachine.DashDistance / stateMachine.DashDuration;

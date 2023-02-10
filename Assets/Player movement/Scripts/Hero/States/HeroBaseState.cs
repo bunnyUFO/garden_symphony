@@ -15,7 +15,14 @@ public abstract class HeroBaseState : State
     {
         if (! stateMachine.Controller.enabled) return;
         
-        Vector3 verticalVelocity = onPlatform ? Vector3.down*2 : stateMachine.ForceReceiver.Movement;
+        Vector3 verticalVelocity = stateMachine.ForceReceiver.Movement;
+        
+        //modified gravity while on platforms
+        if (onPlatform)
+        {
+            verticalVelocity = stateMachine.PlatformVelocity.y < 1 ? Vector3.down * 2 : Vector3.zero;
+        }
+
         if(resetVerticalSpeed) verticalVelocity = Vector3.zero;
         stateMachine.Controller.Move((motion + verticalVelocity + stateMachine.PlatformVelocity) * deltaTime);
     }
