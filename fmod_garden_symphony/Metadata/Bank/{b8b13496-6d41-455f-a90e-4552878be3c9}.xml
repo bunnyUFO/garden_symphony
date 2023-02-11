@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.02.00">
-	<object class="Bank" id="{0ba2e1fa-ed17-4469-9e22-201e829afdb3}">
+	<object class="Bank" id="{b8b13496-6d41-455f-a90e-4552878be3c9}">
 		<property name="name">
-			<value>SFX</value>
+			<value>Music</value>
 		</property>
 		<property name="isMasterBank">
 			<value>true</value>
