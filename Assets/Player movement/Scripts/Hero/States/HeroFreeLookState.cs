@@ -38,7 +38,7 @@ public class HeroFreeLookState : HeroBaseState
         //prevent from walking off ledge
         if(stateMachine.OnLedge && stateMachine.Grounded &&  Vector3.Dot( stateMachine.transform.forward, movement) > 0) movement = Vector3.zero;
 
-        bool resetVerticalSpeed = stateMachine.OnPlatform && stateMachine.PlatformYOffset < 0.03 && stateMachine.PlatformYOffset > 0;
+        bool resetVerticalSpeed = stateMachine.OnPlatform && stateMachine.PlatformYOffset < 0.1 && stateMachine.PlatformYOffset < -0.1;
         Move(movement * stateMachine.FreeLookMovementSpeed, deltaTime, stateMachine.OnPlatform, resetVerticalSpeed);
 
         if (stateMachine.InputReader.MovementValue == Vector2.zero) {
@@ -71,9 +71,9 @@ public class HeroFreeLookState : HeroBaseState
     private void OnJump()
     {
         // Disable jumping while moving fast on platforms because it causes issues
-        if (stateMachine.PlatformVelocity.magnitude < 12)
+        if (stateMachine.PlatformVelocity.magnitude < 6)
         {
-            stateMachine.Controller.SimpleMove(CalculateMovement()*3); 
+            stateMachine.Controller.SimpleMove(CalculateMovement()*3.5f); 
             stateMachine.SwitchState(new HeroJumpingState(stateMachine, true));   
         }
     }
