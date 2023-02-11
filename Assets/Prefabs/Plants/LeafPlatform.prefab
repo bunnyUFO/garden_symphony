@@ -523,12 +523,12 @@ MonoBehaviour:
   - position: {x: 0, y: 3.85, z: 0}
     direction: {x: 0, y: 5.25, z: 0}
     up: {x: 0, y: 1, z: 0}
-    scale: {x: 0.56687504, y: 0.56687504}
+    scale: {x: 0.71125, y: 0.71125}
     roll: 1
   - position: {x: 0, y: 8, z: 0}
     direction: {x: 0, y: 8.72625, z: 0}
     up: {x: 0, y: 1, z: 0}
-    scale: {x: 0.1, y: 0.1}
+    scale: {x: 0.4, y: 0.4}
     roll: 1
   curves:
   - n1:
@@ -579,7 +579,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startScale: 1
-  endScale: 0.1
+  endScale: 0.4
   startRoll: 1
   endRoll: 1
 --- !u!114 &7522671868346904093
