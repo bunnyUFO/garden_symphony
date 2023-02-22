@@ -16,7 +16,7 @@
 			<value>2</value>
 		</property>
 		<property name="maximum">
-			<value>6</value>
+			<value>8</value>
 		</property>
 		<property name="enumerationLabels">
 			<value>Start</value>
@@ -24,6 +24,8 @@
 			<value>Mushroom</value>
 			<value>Venus</value>
 			<value>Symphony</value>
+			<value>Cowbell</value>
+			<value>Symphony2</value>
 			<value>End</value>
 		</property>
 		<property name="isGlobal">
@@ -34,6 +36,14 @@
 		</property>
 		<property name="isExposedRecursively">
 			<value>false</value>
+		</property>
+		<relationship name="automators">
+			<destination>{6fa13b9b-4ab9-485f-9b93-021fa80b8687}</destination>
+		</relationship>
+	</object>
+	<object class="Automator" id="{6fa13b9b-4ab9-485f-9b93-021fa80b8687}">
+		<property name="nameOfPropertyBeingAutomated">
+			<value>cursorPosition</value>
 		</property>
 	</object>
 </objects>
