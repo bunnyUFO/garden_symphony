@@ -1,6 +1,7 @@
 using System;
 using System.Runtime.InteropServices;
 using FMOD.Studio;
+using UnityEditor.UI;
 using UnityEngine;
 
 namespace RythmFramework
@@ -9,9 +10,18 @@ namespace RythmFramework
     {
         [SerializeField]
         private FMODUnity.EventReference eventReference;
-
         private EventInstance instance;
         private EVENT_CALLBACK cb;
+        static FmodListener fmodListener;
+
+
+        void Awake()
+        {
+            if (fmodListener != null)
+            {
+                Destroy(gameObject);
+            }
+        }
 
         void Start()
         {
@@ -19,6 +29,7 @@ namespace RythmFramework
             cb = new EVENT_CALLBACK(StudioEventCallback);
             instance.setCallback(cb, EVENT_CALLBACK_TYPE.TIMELINE_MARKER | EVENT_CALLBACK_TYPE.TIMELINE_BEAT);
             instance.start();
+            fmodListener = this;
         }
         
         void OnDisable()

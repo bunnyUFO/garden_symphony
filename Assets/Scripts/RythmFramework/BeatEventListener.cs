@@ -17,24 +17,24 @@ namespace RythmFramework
         public bool ignore;
 
         private int beatCount = 0;
-        
+
         private void Start()
         {
-            if(beatCounts.Count > 0) BeatEvents.current.OnBeat += OnBeat;
-            if(markers.Count > 0) BeatEvents.current.OnBeatMarker += OnMarker;
+            if (beatCounts.Count > 0) BeatEvents.current.OnBeat += OnBeat;
+            if (markers.Count > 0) BeatEvents.current.OnBeatMarker += OnMarker;
         }
-        
+
         private void OnEnable()
         {
-            if(beatCounts.Count > 0) BeatEvents.current.OnBeat += OnBeat;
-            if(markers.Count > 0) BeatEvents.current.OnBeatMarker += OnMarker;
+            if (beatCounts.Count > 0) BeatEvents.current.OnBeat += OnBeat;
+            if (markers.Count > 0) BeatEvents.current.OnBeatMarker += OnMarker;
         }
-        
-        
+
+
         private void OnDisable()
         {
-            if(beatCounts.Count > 0) BeatEvents.current.OnBeat -= OnBeat;
-            if(markers.Count > 0) BeatEvents.current.OnBeatMarker -= OnMarker;
+            if (beatCounts.Count > 0) BeatEvents.current.OnBeat -= OnBeat;
+            if (markers.Count > 0) BeatEvents.current.OnBeatMarker -= OnMarker;
         }
 
         public void OnBeat()
@@ -43,20 +43,20 @@ namespace RythmFramework
             if (ignore) return;
             for (int i = 0; i < beatCounts.Count; i++)
             {
-                if ((beatCount+beatOffsets[i]) % beatCounts[i] == 0)
+                if ((beatCount + beatOffsets[i]) % beatCounts[i] == 0)
                 {
                     beatActions[i].Invoke();
                 }
             }
         }
-        
+
         public void OnMarker(string markerName)
         {
             if (ignore) return;
             if (markers.Contains(markerName))
             {
                 int markerIndex = markers.IndexOf(markerName);
-                if(markerIndex > -1) markerActions[markerIndex].Invoke();
+                if (markerIndex > -1) markerActions[markerIndex].Invoke();
             }
         }
     }

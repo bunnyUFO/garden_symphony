@@ -197,6 +197,17 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""028c9a56-cd5b-4a12-a7c1-833ec9d5220a"",
+                    ""path"": ""<HID::Sony Interactive Entertainment DUALSHOCK®4 USB Wireless Adaptor>/stick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""c3a36cc4-cfac-4371-ac34-19fc473c2356"",
                     ""path"": ""<Mouse>/delta"",
                     ""interactions"": """",
@@ -218,6 +229,61 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
+                    ""name"": ""2D Vector"",
+                    ""id"": ""6c0f5c2b-5c7a-4fcd-a040-3c605d7aaada"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Look"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""306c7cc8-91c3-4b31-aceb-c4a110d3efbb"",
+                    ""path"": ""<HID::Sony Interactive Entertainment DUALSHOCK®4 USB Wireless Adaptor>/rz"",
+                    ""interactions"": """",
+                    ""processors"": ""Invert"",
+                    ""groups"": """",
+                    ""action"": ""Look"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""c8d3bc24-5207-4074-a39e-f516cab3025c"",
+                    ""path"": ""<HID::Sony Interactive Entertainment DUALSHOCK®4 USB Wireless Adaptor>/rz"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Look"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""2e477424-590d-4de5-80fa-839ecfa0e11e"",
+                    ""path"": ""<HID::Sony Interactive Entertainment DUALSHOCK®4 USB Wireless Adaptor>/z"",
+                    ""interactions"": """",
+                    ""processors"": ""Invert"",
+                    ""groups"": """",
+                    ""action"": ""Look"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""1e9772b6-2327-467d-adb9-38b42fbd58f5"",
+                    ""path"": ""<HID::Sony Interactive Entertainment DUALSHOCK®4 USB Wireless Adaptor>/z"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Look"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
                     ""name"": """",
                     ""id"": ""f37c0eaf-acb0-4615-8e2d-de340b0d581c"",
                     ""path"": ""<Keyboard>/space"",
@@ -235,6 +301,17 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""430dad44-046a-4fec-ab8e-f9054da190aa"",
+                    ""path"": ""<HID::Sony Interactive Entertainment DUALSHOCK®4 USB Wireless Adaptor>/button2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
                     ""action"": ""Jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -302,6 +379,28 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""Keyboard & Mouse"",
                     ""action"": ""Hover"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""58c2da59-493e-48f1-b53c-02902e4cffee"",
+                    ""path"": ""<HID::Sony Interactive Entertainment DUALSHOCK®4 USB Wireless Adaptor>/trigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Hover"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3a4e3720-ed42-4ff1-a51b-b25240e2cc4e"",
+                    ""path"": ""<HID::Sony Interactive Entertainment DUALSHOCK®4 USB Wireless Adaptor>/button3"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Dash"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
