@@ -34,21 +34,24 @@ public class HeroFreeLookState : HeroBaseState
         }
 
         Vector3 movement = CalculateMovement();
+        FaceMovementDirection(movement, deltaTime);
         
         //prevent from walking off ledge
         if(stateMachine.OnLedge && stateMachine.Grounded &&  Vector3.Dot( stateMachine.transform.forward, movement) > 0) movement = Vector3.zero;
+        Move(movement * stateMachine.FreeLookMovementSpeed, deltaTime, stateMachine.OnPlatform);
+        AnimateMovement(deltaTime);
+    }
 
-        bool resetVerticalSpeed = stateMachine.OnPlatform && stateMachine.PlatformYOffset < 0.1 && stateMachine.PlatformYOffset < -0.1;
-        Move(movement * stateMachine.FreeLookMovementSpeed, deltaTime, stateMachine.OnPlatform, resetVerticalSpeed);
-
-        if (stateMachine.InputReader.MovementValue == Vector2.zero) {
+    private void AnimateMovement(float deltaTime)
+    {
+        if (stateMachine.InputReader.MovementValue == Vector2.zero)
+        {
             stateMachine.Animator.SetFloat(FreeLookSpeedHash, 0, AnimatorDampTime, deltaTime);
             SelectRandomIdleAnimation(deltaTime);
             return;
         }
 
         stateMachine.Animator.SetFloat(FreeLookSpeedHash, 1, AnimatorDampTime, deltaTime);
-        FaceMovementDirection(movement, deltaTime);
     }
 
     public override void Exit() 
@@ -71,7 +74,7 @@ public class HeroFreeLookState : HeroBaseState
     private void OnJump()
     {
         // Disable jumping while moving fast on platforms because it causes issues
-        if (stateMachine.PlatformVelocity.magnitude < 6)
+        if (stateMachine.PlatformVelocity.magnitude < 10)
         {
             stateMachine.Controller.SimpleMove(CalculateMovement()*3.5f); 
             stateMachine.SwitchState(new HeroJumpingState(stateMachine, true));   

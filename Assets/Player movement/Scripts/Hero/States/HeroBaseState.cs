@@ -1,30 +1,46 @@
 using UnityEngine;
 using GGJ.StateMachine;
 
-public abstract class HeroBaseState : State 
+public abstract class HeroBaseState : State
 {
     protected HeroStateMachine stateMachine;
-
 
     public HeroBaseState(HeroStateMachine stateMachine)
     {
         this.stateMachine = stateMachine;
     }
-    
-    protected void Move(Vector3 motion, float deltaTime, bool onPlatform = false, bool resetVerticalSpeed = false)
+
+    protected void Move(Vector3 motion, float deltaTime, bool onPlatform = false, bool useGravity = true)
     {
-        if (! stateMachine.Controller.enabled) return;
-        
+        if (!stateMachine.Controller.enabled) return;
+        var verticalVelocity = useGravity ? CalculateGravity(onPlatform) : Vector3.zero;
+        stateMachine.Controller.Move((motion + verticalVelocity + stateMachine.PlatformVelocity) * deltaTime);
+    }
+
+    private Vector3 CalculateGravity(bool onPlatform)
+    {
         Vector3 verticalVelocity = stateMachine.ForceReceiver.Movement;
-        
-        //modified gravity while on platforms
+
         if (onPlatform)
         {
-            verticalVelocity = stateMachine.PlatformVelocity.y < 1 ? Vector3.down * 2 : Vector3.zero;
+            verticalVelocity = Vector3.down * 2f;
+            if (UnderPlatform() && PlatformMovingUpFast())
+            {
+                verticalVelocity = Vector3.up * (stateMachine.PlatformVelocity.y / 10);
+            }
         }
 
-        if(resetVerticalSpeed) verticalVelocity = Vector3.zero;
-        stateMachine.Controller.Move((motion + verticalVelocity + stateMachine.PlatformVelocity) * deltaTime);
+        return verticalVelocity;
+    }
+
+    private bool PlatformMovingUpFast()
+    {
+        return stateMachine.PlatformVelocity.y > 5;
+    }
+
+    private bool UnderPlatform()
+    {
+        return stateMachine.PlatformYOffset < 0;
     }
 
     protected Vector3 CalculateMovement()
@@ -44,7 +60,7 @@ public abstract class HeroBaseState : State
     protected void FaceMovementDirection(Vector3 movement, float deltaTime)
     {
         if (movement == Vector3.zero) return;
-        
+
         stateMachine.transform.rotation = Quaternion.Lerp(
             stateMachine.transform.rotation,
             Quaternion.LookRotation(movement),
@@ -58,9 +74,12 @@ public abstract class HeroBaseState : State
         {
             stateMachine.SwitchState(new HeroFreeLookState(stateMachine));
         }
-        else if (!stateMachine.Grounded) {
+        else if (!stateMachine.Grounded)
+        {
             stateMachine.SwitchState(new HeroFallingState(stateMachine));
-        } else {
+        }
+        else
+        {
             stateMachine.SwitchState(new HeroFreeLookState(stateMachine));
         }
     }
