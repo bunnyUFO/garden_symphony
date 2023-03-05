@@ -88,7 +88,7 @@ public class HeroJumpingState : HeroBaseState
     private void OnDash()
     {
         if (stateMachine.AbilityTracker.TryAddAbility("Dash")) {
-            stateMachine.SwitchState(new HeroDashingState(stateMachine, Vector2.up));
+            stateMachine.SwitchState(new HeroDashingState(stateMachine));
         }
     }
 

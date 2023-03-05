@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class HeroDashingState : HeroBaseState
@@ -7,22 +5,19 @@ public class HeroDashingState : HeroBaseState
     private readonly int DashingHash = Animator.StringToHash("Dashing");
     private const float CrossFadeDuration = 0.1f;
     private Vector3 dashDirection;
+    private Vector3 dashDirectionInput;
     private float remainingDashTime;
 
 
-    public HeroDashingState(HeroStateMachine stateMachine, Vector3 dodgingDirectionInput) : base(stateMachine)
+    public HeroDashingState(HeroStateMachine stateMachine) : base(stateMachine)
     {
-        dashDirection = new Vector3(dodgingDirectionInput.x, 0f,
-                                    dodgingDirectionInput.z);
     }
 
     public override void Enter() 
     {
         stateMachine.InputReader.JumpEvent += OnJump;
         stateMachine.InputReader.HoverEvent += OnHover;
-
         remainingDashTime = stateMachine.DashDuration;
-
         stateMachine.Animator.CrossFadeInFixedTime(DashingHash, CrossFadeDuration);
 
         //WebGL does not like serialized objects
@@ -35,7 +30,8 @@ public class HeroDashingState : HeroBaseState
     public override void Tick(float deltaTime) 
     {
         stateMachine.ForceReceiver.Reset();
-        var movement = dashDirection * stateMachine.DashDistance / stateMachine.DashDuration;
+        // var movement = dashDirection * stateMachine.DashDistance / stateMachine.DashDuration;
+        var movement = stateMachine.transform.forward * stateMachine.DashDistance / stateMachine.DashDuration;
         Move(movement, deltaTime, stateMachine.OnPlatform, false);
 
         remainingDashTime -= deltaTime;
