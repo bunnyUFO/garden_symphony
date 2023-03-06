@@ -35,7 +35,7 @@ public class PlatformGripper : MonoBehaviour
         if (Physics.SphereCast(transform.position + raycastPosition, rayCastRadius, Vector3.down, out var hit, rayCastDistance, layerMask))
         {
             ungroundedDeltaTime = 0;
-            GroundedEvents.current.Grounded(true);
+            GroundedEvents.current.Grounded(true, hit.transform);
             
             if (hit.collider.CompareTag(platformTag))
             {
@@ -68,7 +68,7 @@ public class PlatformGripper : MonoBehaviour
             previousCollider = null;
             ungroundedDeltaTime += Time.deltaTime;
             if (ungroundedDeltaTime > ungripDeltaThreshold) {
-                GroundedEvents.current.Grounded(false);
+                GroundedEvents.current.Grounded(false, null);
                 GroundedEvents.current.PlatformUpdate(false, Vector3.zero, Vector3.zero);
             }
         }
@@ -91,12 +91,6 @@ public class PlatformGripper : MonoBehaviour
             Gizmos.DrawWireSphere(position + Vector3.down*0.05f, rayCastRadius);
             Gizmos.DrawLine(position, position + Vector3.down*rayCastDistance);
             Gizmos.DrawWireSphere(position + Vector3.down*(rayCastDistance - 0.05f), rayCastRadius);
-
-            // position += transform.forward * forwardOffset;
-            // Gizmos.color = Color.yellow;
-            // Gizmos.DrawWireSphere(position + Vector3.down*0.05f, edgeRayCastRadius);
-            // Gizmos.DrawLine(position, position + Vector3.down*edgeRayCastDistance);
-            // Gizmos.DrawWireSphere(position + Vector3.down*(edgeRayCastDistance - 0.05f), edgeRayCastRadius);
         }
     }
 }

@@ -55,7 +55,7 @@ public class HeroStateMachine : StateMachine
         GroundedEvents.current.OnBounce += BounceUpdate;
     }
 
-    private void OnGrounded(bool isGrounded)
+    private void OnGrounded(bool isGrounded, Transform t)
     {
         Grounded = isGrounded;
     }

@@ -45,7 +45,8 @@ GameObject:
   - component: {fileID: 7631846678534807561}
   - component: {fileID: 4586522178236017810}
   - component: {fileID: 4853628322225414900}
-  m_Layer: 0
+  - component: {fileID: 6573183780246970764}
+  m_Layer: 6
   m_Name: Bouncer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -160,6 +161,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bounceOnBeat: 0
   launchStrength: 60
+--- !u!65 &6573183780246970764
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5169829374553006398}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.5, y: 0.5, z: 0.5}
+  m_Center: {x: 0, y: -0.0010240562, z: -0.79251987}
 --- !u!1 &5477391238455171071
 GameObject:
   m_ObjectHideFlags: 0

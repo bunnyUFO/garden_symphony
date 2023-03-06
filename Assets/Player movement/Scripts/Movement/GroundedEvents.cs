@@ -14,13 +14,13 @@ namespace RythmFramework
             current = this;
         }
 
-        public event Action<bool> OnGrounded;
+        public event Action<bool, Transform> OnGrounded;
 
-        public void Grounded(bool grounded)
+        public void Grounded(bool grounded, Transform ground)
         {
             if (OnGrounded != null)
             {
-                OnGrounded(grounded);
+                OnGrounded(grounded, ground);
             }
         }
         
