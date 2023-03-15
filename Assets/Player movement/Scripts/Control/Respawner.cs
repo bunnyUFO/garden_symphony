@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -56,7 +57,14 @@ public class Respawner : MonoBehaviour
             spawnPosition = checkpoint.SpawnPoint.position;
             spawnRotation = checkpoint.SpawnPoint.eulerAngles;
         } else if (other.gameObject.CompareTag("Respawn")) {
-            //Debug.Log($"Respawn!");
+            StartCoroutine(Respawn());
+        }
+    }
+    
+    void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        if (hit.gameObject.CompareTag("Respawn")) {
+            Debug.Log("Test");
             StartCoroutine(Respawn());
         }
     }

@@ -1,8 +1,6 @@
-﻿using System.Collections.Generic;
-using UnityEditor;
+﻿using UnityEditor;
 using UnityEngine;
 using SplineMesh;
-using UnityEngine.UIElements;
 
 namespace SplineMeshExtensions
 { 
